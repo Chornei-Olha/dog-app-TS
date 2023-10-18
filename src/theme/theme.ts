@@ -4,6 +4,10 @@ import { MuiButtonConfig } from './button.config';
 // A custom theme for this app
 const theme = createTheme({
   palette: {
+    common: {
+      white: '#FFFFFF',
+      black: '#000000'
+    },
     primary: {
       main: '#921FED',
       contrastText: '#FFFFFF'

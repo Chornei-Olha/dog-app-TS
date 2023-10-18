@@ -47,14 +47,17 @@ exports[`Button should match snapshot Component 1`] = `
   color: #FFFFFF;
   background-color: #921FED;
   box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: none;
   text-transform: none;
   font-size: 20px;
   line-height: 1.6;
   padding: 8px 16px;
-  background-color: #921FED;
   color: #FFFFFF;
+  background-color: #921FED;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .emotion-0::-moz-focus-inner {
@@ -107,11 +110,12 @@ exports[`Button should match snapshot Component 1`] = `
 
 .emotion-0:hover {
   background-color: #A239F4;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
 }
 
 .emotion-0:active {
   background-color: #B568F2;
-  box-shadow: inset 0px -4px 6px rgba(255, 255, 255, 0.25),inset 0px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
 }
 
 <div>
@@ -169,15 +173,20 @@ exports[`Button should match snapshot Component 2`] = `
   border-radius: 4px;
   -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  border: 1px solid rgba(146, 31, 237, 0.5);
-  color: #921FED;
-  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
+  border-radius: 10px;
   box-shadow: none;
   text-transform: none;
   font-size: 20px;
   line-height: 1.6;
   padding: 8px 16px;
-  color: #FFFFFF;
+  color: #921FED;
+  background-color: #FFFFFF;
+  border: 1px solid #921FED;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .emotion-0::-moz-focus-inner {
@@ -199,8 +208,8 @@ exports[`Button should match snapshot Component 2`] = `
 .emotion-0:hover {
   -webkit-text-decoration: none;
   text-decoration: none;
-  background-color: rgba(146, 31, 237, 0.04);
-  border: 1px solid #921FED;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid #FFFFFF;
 }
 
 @media (hover: none) {
@@ -219,9 +228,42 @@ exports[`Button should match snapshot Component 2`] = `
   box-shadow: none;
 }
 
+.emotion-0:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  border-radius: 10px;
+  bottom: -5px;
+  right: -5px;
+  z-index: -1;
+}
+
+.emotion-0:hover {
+  color: #A239F4;
+  border: 1px solid #A239F4;
+  background-color: #FFFFFF;
+}
+
+.emotion-0:active {
+  color: #B568F2;
+  border: 1px solid #B568F2;
+}
+
+.emotion-0:active:after {
+  bottom: 0;
+  right: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
 <div>
   <button
-    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium emotion-0"
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-root MuiButton-outlined MuiButton-outlinedSecondary MuiButton-sizeMedium MuiButton-outlinedSizeMedium emotion-0"
     tabindex="0"
     type="button"
   >
