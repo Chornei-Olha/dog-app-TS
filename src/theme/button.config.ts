@@ -3,6 +3,7 @@ import { Components, Theme, alpha } from '@mui/material';
 export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
   styleOverrides: {
     root: ({ theme }) => ({
+      fontFamily: 'Dosis',
       borderRadius: 10,
       boxShadow: 'none',
       textTransform: 'none',
