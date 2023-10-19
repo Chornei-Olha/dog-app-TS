@@ -29,18 +29,6 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
 
-    outlinedPrimary: ({ theme: { palette } }) => ({
-      color: palette.primary.contrastText,
-      backgroundColor: 'transparent',
-      border: `1px solid ${palette.primary.contrastText}`,
-      '&:hover': {
-        border: `1px solid ${palette.grey[100]}`
-      },
-      '&:active': {
-        border: `1px solid ${palette.grey[300]}`
-      }
-    }),
-
     containedSecondary: ({ theme: { palette } }) => ({
       backgroundColor: palette.secondary.main,
       color: palette.secondary.contrastText,
@@ -56,9 +44,9 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
 
-    outlinedSecondary: ({ theme: { palette } }) => ({
+    outlinedPrimary: ({ theme: { palette } }) => ({
       color: palette.secondary.contrastText,
-      backgroundColor: palette.common.white,
+      backgroundColor: 'transparent',
       border: `1px solid ${palette.secondary.contrastText}`,
       position: 'relative',
       transition: 'all 0.2s ease-in-out',
@@ -69,18 +57,17 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
         display: 'block',
         width: '100%',
         height: '100%',
-        backgroundColor: palette.common.white,
+        backgroundColor: 'transparent',
         borderRight: `1px solid ${palette.common.black}`,
         borderBottom: `1px solid ${palette.common.black}`,
-        borderRadius: 10,
+        borderRadius: 6,
         bottom: '-5px',
         right: '-5px',
         zIndex: -1
       },
       '&:hover': {
         color: palette.action.hover,
-        border: `1px solid ${palette.action.hover}`,
-        backgroundColor: palette.common.white
+        border: `1px solid ${palette.action.hover}`
       },
       '&:active': {
         color: palette.action.selected,
@@ -92,6 +79,18 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
           borderRight: `none`,
           borderBottom: `none`
         }
+      }
+    }),
+
+    outlinedSecondary: ({ theme: { palette } }) => ({
+      color: palette.primary.contrastText,
+      backgroundColor: 'transparent',
+      border: `1px solid ${palette.primary.contrastText}`,
+      '&:hover': {
+        border: `1px solid ${palette.grey[100]}`
+      },
+      '&:active': {
+        border: `1px solid ${palette.grey[300]}`
       }
     })
   },

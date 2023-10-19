@@ -181,12 +181,9 @@ exports[`Button should match snapshot Component 2`] = `
   font-size: 20px;
   line-height: 1.6;
   padding: 8px 16px;
-  color: #921FED;
-  background-color: #FFFFFF;
-  border: 1px solid #921FED;
-  position: relative;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  color: #FFFFFF;
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
 }
 
 .emotion-0::-moz-focus-inner {
@@ -228,37 +225,12 @@ exports[`Button should match snapshot Component 2`] = `
   box-shadow: none;
 }
 
-.emotion-0:after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #FFFFFF;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
-  border-radius: 10px;
-  bottom: -5px;
-  right: -5px;
-  z-index: -1;
-}
-
 .emotion-0:hover {
-  color: #A239F4;
-  border: 1px solid #A239F4;
-  background-color: #FFFFFF;
+  border: 1px solid #FBFAFC;
 }
 
 .emotion-0:active {
-  color: #B568F2;
-  border: 1px solid #B568F2;
-}
-
-.emotion-0:active:after {
-  bottom: 0;
-  right: 0;
-  border-right: none;
-  border-bottom: none;
+  border: 1px solid #E6E6E6;
 }
 
 <div>

@@ -28,10 +28,10 @@ function App() {
           contained secondary
         </Button>
         <Button variant="contained" color="primary">
-          <span style={{ marginRight: '15px', color: 'yellow' }}>2</span>{' '}
+          <span style={{ marginRight: '15px', color: 'yellow' }}>2</span>
           contained primary
         </Button>
-        <Button variant="outlined">outlined</Button>
+        <Button variant="outlined">outlined primary</Button>
         <Button variant="outlined" color="secondary">
           outlined secondary
         </Button>
