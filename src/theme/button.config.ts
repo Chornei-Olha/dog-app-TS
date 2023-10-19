@@ -11,7 +11,8 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       lineHeight: 1.6,
       padding: theme.spacing(1, 2),
       '&:hover, &:active': {
-        boxShadow: 'none'
+        boxShadow: 'none',
+        outline: 'none'
       }
     }),
 
@@ -63,8 +64,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
         borderBottom: `1px solid ${palette.common.black}`,
         borderRadius: 6,
         bottom: '-5px',
-        right: '-5px',
-        zIndex: -1
+        right: '-5px'
       },
       '&:hover': {
         color: palette.action.hover,
