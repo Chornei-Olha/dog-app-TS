@@ -16,8 +16,24 @@ function App() {
       </div>
       <h1>1Vite + React</h1>
       <div className="card">
-        <Button onClick={() => setCount(c => c + 1)} disableRipple>
+        <Button
+          variant="contained"
+          onClick={() => setCount(c => c + 1)}
+          disableRipple
+        >
           count is {count}
+        </Button>
+        {/* test */}
+        <Button variant="contained" color="secondary">
+          contained secondary
+        </Button>
+        <Button variant="contained" color="primary">
+          <span style={{ marginRight: '15px', color: 'yellow' }}>2</span>
+          contained primary
+        </Button>
+        <Button variant="outlined">outlined primary</Button>
+        <Button variant="outlined" color="secondary">
+          outlined secondary
         </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
