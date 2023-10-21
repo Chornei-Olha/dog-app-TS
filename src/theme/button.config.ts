@@ -9,7 +9,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       textTransform: 'none',
       fontSize: 20,
       lineHeight: 1.6,
-      padding: theme.spacing(1, 2),
+      padding: theme.spacing(1, 5),
       '&:hover, &:active': {
         boxShadow: 'none',
         outline: 'none'
