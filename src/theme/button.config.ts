@@ -33,14 +33,6 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       },
     }),
 
-    outlinedSecondary: ({ theme: { palette } }) => ({
-      color: palette.primary.main,
-      border: 1, // doesn`t work
-      borderColor: palette.primary.contrastText,
-      '&:hover': {
-        borderColor: palette.primary.contrastText,
-      },
-        }),
   },
   defaultProps: {
     disableRipple: true
