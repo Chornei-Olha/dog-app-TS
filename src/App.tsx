@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Button } from '@mui/material';
-
+import CustomBox from './components/atoms/CustomBox/Box';
 import reactLogo from './assets/react.svg';
 
 import './App.css';
 
 function App() {
+
   const [count, setCount] = useState(0);
   return (
     <>
@@ -26,8 +27,11 @@ function App() {
         <Button variant="outlined" color="secondary">
           outlined secondary
         </Button>
-
       </div>
+
+      <CustomBox borderRadius={20} height={150} active={true}>
+      <p>Hello, guys!</p>
+      </CustomBox>
     </>
   );
 }
