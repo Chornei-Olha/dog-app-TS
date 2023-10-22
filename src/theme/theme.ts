@@ -30,12 +30,11 @@ const theme = createTheme({
     },
     text: {
       primary: '#5F556D'
-      // secondary: "#FFFFFF",
     },
     grey: {
-      100: '#FBFAFC',
-      300: '#E6E6E6',
-      500: '#ADA7B8'
+      100: '#FCFAFA',
+      300: '#FBFAFC',
+      500: '#E6E6E6'
     },
     action: {
       hover: '#A239F4',
@@ -128,7 +127,10 @@ const theme = createTheme({
       defaultProps: {
         disableRipple: true
       }
-    }
+    },
+
+    MuiButton: MuiButtonConfig
+
   }
 });
 
