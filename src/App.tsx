@@ -14,16 +14,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>1Vite + React</h1>
       <div className="card">
-        <Button
-          variant="contained"
-          onClick={() => setCount(c => c + 1)}
-          disableRipple
-        >
-          count is {count}
-        </Button>
-        {/* test */}
         <Button variant="contained" color="secondary">
           contained secondary
         </Button>
@@ -35,13 +26,8 @@ function App() {
         <Button variant="outlined" color="secondary">
           outlined secondary
         </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
