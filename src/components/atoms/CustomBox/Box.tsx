@@ -9,10 +9,11 @@ interface CustomBoxProps extends BoxProps {
   borderRadius?: number;
   height?: number;
   isHovered: boolean;
+  isHover: boolean;
 }
 
 const CustomBox = styled(Box)<CustomBoxProps>(
-  ({ theme, borderRadius, height, isHovered }) => ({
+  ({ theme, borderRadius, height, isHovered, isHover }) => ({
     borderRadius: borderRadius || 20,
     height: height || 50,
     boxShadow: isHovered
@@ -20,15 +21,16 @@ const CustomBox = styled(Box)<CustomBoxProps>(
       : 'none',
     transition: 'box-shadow 0.3s ease-in-out',
     '&:hover': {
-      boxShadow: isHovered ? `6px 6px 8px 0px #921FED` : 'none'
+      boxShadow: isHover
+        ? `6px 6px 8px 0px ${alpha(theme.palette.primary.main, 1)}`
+        : `6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`
     },
     '&:active': {
-      boxShadow: isHovered
+      boxShadow: isHover
         ? `6px 6px 8px 0px ${alpha(theme.palette.primary.main, 1)}`
-        : 'none'
+        : `6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`
     }
   })
 );
 
 export default CustomBox;
-

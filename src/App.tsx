@@ -29,7 +29,7 @@ function App() {
         </Button>
       </div>
 
-      <CustomBox isHovered={true}>
+      <CustomBox isHovered={true} isHover={true}>
       <p>Hello, guys!</p>
       </CustomBox>
     </>

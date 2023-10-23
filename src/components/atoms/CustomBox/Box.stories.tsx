@@ -1,28 +1,18 @@
-// import type { Meta, StoryObj } from '@storybook/react';
-
-// import CustomBox from './Box'
-
-// const meta = {
-//     title: 'CustomBox',
-//     parameters: {
-//         layout: 'centered'
-//       }
-// } satisfies Meta<typeof CustomBox>;
-
-// export default meta;
-
-// type Story = StoryObj<typeof meta>;
-
 import React from 'react';
+import { Meta, Story } from '@storybook/react';
 import CustomBox from './Box';
+import { alpha } from '@mui/material';
+import { createTheme } from '@mui/material/styles';
 
-export const withBoxHoverEffect = (Story: React.ComponentType) => {
+const theme = createTheme();
+
+const withHoverEffect = Story => {
   return (
     <div
-      onMouseEnter={() => <Story isHovered={true} />}
-      onMouseLeave={() => <Story isHovered={false} />}
+      onMouseEnter={() => Story({ isHovered: true })}
+      onMouseLeave={() => Story({ isHovered: false })}
     >
-      <Story />
+      <Story isHovered={false} />
     </div>
   );
 };
@@ -30,16 +20,35 @@ export const withBoxHoverEffect = (Story: React.ComponentType) => {
 export default {
   title: 'CustomBox',
   component: CustomBox,
-  decorators: [withBoxHoverEffect],
+  decorators: [withHoverEffect]
 };
 
-export const Default = () => <CustomBox isHovered={false}>Обычный Box</CustomBox>;
+export const Default = () => (
+  <CustomBox
+    isHovered={true}
+    isHover={false}
+    boxShadow="${alpha(theme.palette.common.white, 1)}"
+  >
+    Default Box
+  </CustomBox>
+);
 
-// export const Hovered = () => <CustomBox isHovered={true}>Box с hover-эффектом</CustomBox>;
+export const HoverWithBlackShadow = () => (
+  <CustomBox
+    isHovered={true}
+    isHover={false}
+    boxShadow="${alpha(theme.palette.common.white, 1)}"
+  >
+    Box with BLACK shadow on hover
+  </CustomBox>
+);
 
-
-
-  
-  
-
-
+export const HoverWithMainShadow = () => (
+  <CustomBox
+    isHovered={true}
+    isHover={true}
+    boxShadow="${alpha(theme.palette.primary.main, 1)}"
+  >
+    Box with MAIN shadow on hover
+  </CustomBox>
+);
