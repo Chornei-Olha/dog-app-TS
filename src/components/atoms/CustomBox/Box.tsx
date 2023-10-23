@@ -8,22 +8,22 @@ const theme = createTheme();
 interface CustomBoxProps extends BoxProps {
   borderRadius?: number;
   height?: number;
-  active?: boolean;
+  isHovered: boolean;
 }
 
 const CustomBox = styled(Box)<CustomBoxProps>(
-  ({ theme, borderRadius, height, active }) => ({
+  ({ theme, borderRadius, height, isHovered }) => ({
     borderRadius: borderRadius || 20,
     height: height || 50,
-    boxShadow: active
+    boxShadow: isHovered
       ? `6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`
       : 'none',
     transition: 'box-shadow 0.3s ease-in-out',
     '&:hover': {
-      boxShadow: active ? `6px 6px 8px 0px #921FED` : 'none'
+      boxShadow: isHovered ? `6px 6px 8px 0px #921FED` : 'none'
     },
     '&:active': {
-      boxShadow: active
+      boxShadow: isHovered
         ? `6px 6px 8px 0px ${alpha(theme.palette.primary.main, 1)}`
         : 'none'
     }

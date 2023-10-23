@@ -29,7 +29,7 @@ function App() {
         </Button>
       </div>
 
-      <CustomBox borderRadius={20} height={150} active={true}>
+      <CustomBox isHovered={true}>
       <p>Hello, guys!</p>
       </CustomBox>
     </>
