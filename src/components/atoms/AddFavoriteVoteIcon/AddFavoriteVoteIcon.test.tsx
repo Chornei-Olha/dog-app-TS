@@ -1,8 +1,11 @@
 import { composeStories } from '@storybook/react';
+import { render } from '@testing-library/react';
 import * as stories from './AddFavoriteVoteIcon.stories';
-import { testSnapshot } from '../../../test/utils/snapshot.utils';
 
-describe('Icon', () => {
+describe('AddFavoriteVoteIcon', () => {
   const { Primary } = composeStories(stories);
-  testSnapshot(<Primary />);
+  it('should match snapshot Primary', () => {
+    const { container } = render(<Primary />);
+    expect(container).toMatchSnapshot();
+  });
 });
