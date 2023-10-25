@@ -47,7 +47,7 @@ module.exports = {
     'react/function-component-definition': 0,
     '@typescript-eslint/no-explicit-any': 1,
     'prettier/prettier': [
-      'warn',
+      'error',
       {
         parser: 'typescript'
       }
