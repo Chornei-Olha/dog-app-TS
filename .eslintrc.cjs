@@ -3,8 +3,7 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    '@typescript-eslint/stylistic-type-checked',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'airbnb',
     'airbnb-typescript',
@@ -38,8 +37,8 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
-    tsconfigRootDir: __dirname
+    project: './tsconfig.json',
+    sourceType: 'module'
   },
   rules: {
     'import/prefer-default-export': 0,

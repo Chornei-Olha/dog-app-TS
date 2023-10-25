@@ -1,9 +1,6 @@
 import { Box, BoxProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { alpha } from '@mui/material';
-// import { createTheme } from '@mui/material/styles';
-
-// const theme = createTheme();
 
 interface CustomBoxProps extends BoxProps {
   borderRadius?: number;
