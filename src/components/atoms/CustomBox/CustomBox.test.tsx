@@ -11,6 +11,7 @@ describe('CustomBox', () => {
   it('should render without errors', () => {
     render(<CustomBox data-testid="custom-box" showHovered={false} />);
     expect(screen.getByTestId('custom-box')).toBeInTheDocument();
+    expect('custom-box').toMatchSnapshot();
   });
 
   it('the default state should be a black shadow', () => {
@@ -19,6 +20,7 @@ describe('CustomBox', () => {
     expect(customBox).toHaveStyle(
       `box-shadow: 6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`
     );
+    expect('custom-box').toMatchSnapshot();
   });
 
   it('should have a black shadow when transmitting this props', () => {
@@ -28,6 +30,7 @@ describe('CustomBox', () => {
     expect(customBox).toHaveStyle(
       `box-shadow: 6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`
     );
+    expect('custom-box').toMatchSnapshot();
   });
 
   it('should have a main shadow when transmitting this props', () => {
@@ -37,5 +40,6 @@ describe('CustomBox', () => {
     expect(customBox).toHaveStyle(
       `box-shadow: 6px 6px 8px 0px ${alpha(theme.palette.primary.main, 1)}`
     );
+    expect('custom-box').toMatchSnapshot();
   });
 });
