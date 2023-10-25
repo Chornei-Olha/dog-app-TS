@@ -8,10 +8,6 @@ const meta = {
     state: {
       options: ['hover', 'active', 'default'],
       control: 'radio'
-    },
-    size: {
-      options: ['small', 'middle'],
-      control: 'radio'
     }
   }
 } satisfies Meta<typeof AddFavoriteIcon>;
@@ -21,7 +17,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    state: 'default',
-    size: 'middle'
+    state: 'default'
   }
 };

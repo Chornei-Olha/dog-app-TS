@@ -29,10 +29,7 @@ function App() {
           onMouseEnter={() => setToggleMouseOver(true)}
           onMouseLeave={() => setToggleMouseOver(false)}
         >
-          <AddFavoriteIcon
-            state={toggleMouseOver ? 'hover' : 'default'}
-            size="small"
-          />
+          <AddFavoriteIcon state={toggleMouseOver ? 'hover' : 'default'} />
           <span style={{ marginLeft: '10px' }}>contained primary</span>
         </Button>
         <Button variant="outlined">outlined primary</Button>
@@ -41,7 +38,6 @@ function App() {
         </Button>
         <Box>
           <FavoritePageIcon state="default" />
-          <FavoritePageIcon state="hover" />
           <FavoritePageIcon state="active" />
 
           <AddFavoriteIcon state="default" />
@@ -52,6 +48,7 @@ function App() {
           <UploadPageIcon state="active" />
 
           <AddFavoriteVoteIcon />
+          <AddFavoriteVoteIcon state="hover" />
           <AddFavoriteVoteIcon state="active" />
         </Box>
       </div>

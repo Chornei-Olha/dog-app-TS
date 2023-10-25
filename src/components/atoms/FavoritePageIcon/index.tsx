@@ -1,5 +1,7 @@
-import FavoritePageDefaultIcon from '../../../assets/icons/FavoritePageDefaultIcon.svg';
-import FavoritePageActiveIcon from '../../../assets/icons/FavoritePageActiveIcon.svg';
+import { SvgIcon } from '@mui/material';
+
+import FavoritePageDefaultIcon from '../../../assets/icons/FavoritePageDefaultIcon.svg?react';
+import FavoritePageActiveIcon from '../../../assets/icons/FavoritePageActiveIcon.svg?react';
 
 type FavoritePageIconProps = {
   state: 'active' | 'default';
@@ -10,10 +12,10 @@ export const FavoritePageIcon = ({
 }: FavoritePageIconProps) => {
   switch (state) {
     case 'active': {
-      return <img src={FavoritePageActiveIcon} alt="" />;
+      return <SvgIcon component={FavoritePageActiveIcon} inheritViewBox />;
     }
     default: {
-      return <img src={FavoritePageDefaultIcon} alt="" />;
+      return <SvgIcon component={FavoritePageDefaultIcon} inheritViewBox />;
     }
   }
 };

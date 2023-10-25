@@ -1,34 +1,25 @@
-import AddFavoriteHoverIcon from '../../../assets/icons/AddFavoriteHoverIcon.svg';
-import AddFavoriteActiveIcon from '../../../assets/icons/AddFavoriteActiveIcon.svg';
-import AddFavoriteDefaultIcon from '../../../assets/icons/AddFavoriteDefaultIcon.svg';
+import { SvgIcon } from '@mui/material';
 
-type TypeSize = {
-  small: number;
-  middle: number;
-};
-const sizeIcon: TypeSize = {
-  small: 20,
-  middle: 30
-};
+import AddFavoriteHoverIcon from '../assets/icons/AddFavoriteHoverIcon.svg?react';
+import AddFavoriteActiveIcon from '../assets/icons/AddFavoriteActiveIcon.svg?react';
+import AddFavoriteDefaultIcon from '../assets/icons/AddFavoriteDefaultIcon.svg?react';
 
 type AddFavoriteIconProps = {
   state?: 'hover' | 'active' | 'default';
-  size?: 'small' | 'middle';
 };
 
 export const AddFavoriteIcon = ({
-  state = 'default',
-  size = 'middle'
+  state = 'default'
 }: AddFavoriteIconProps) => {
   switch (state) {
     case 'hover': {
-      return <img src={AddFavoriteHoverIcon} alt="" width={sizeIcon[size]} />;
+      return <SvgIcon component={AddFavoriteHoverIcon} inheritViewBox />;
     }
     case 'active': {
-      return <img src={AddFavoriteActiveIcon} alt="" width={sizeIcon[size]} />;
+      return <SvgIcon component={AddFavoriteActiveIcon} inheritViewBox />;
     }
     default: {
-      return <img src={AddFavoriteDefaultIcon} alt="" width={sizeIcon[size]} />;
+      return <SvgIcon component={AddFavoriteDefaultIcon} inheritViewBox />;
     }
   }
 };

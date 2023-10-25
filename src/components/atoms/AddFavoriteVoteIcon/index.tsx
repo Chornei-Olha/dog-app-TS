@@ -1,6 +1,8 @@
-import AddFavoriteVoteDefaultIcon from '../../../assets/icons/AddFavoriteVoteDefaultIcon.svg';
-import AddFavoriteVoteHoverIcon from '../../../assets/icons/AddFavoriteVoteHoverIcon.svg';
-import AddFavoriteVoteActiveIcon from '../../../assets/icons/AddFavoriteVoteActiveIcon.svg';
+import { SvgIcon } from '@mui/material';
+
+import AddFavoriteVoteDefaultIcon from '../../../assets/icons/AddFavoriteVoteDefaultIcon.svg?react';
+import AddFavoriteVoteHoverIcon from '../../../assets/icons/AddFavoriteVoteHoverIcon.svg?react';
+import AddFavoriteVoteActiveIcon from '../../../assets/icons/AddFavoriteVoteActiveIcon.svg?react';
 
 type AddFavoriteVoteIconProps = {
   state?: 'hover' | 'active' | 'default';
@@ -11,13 +13,13 @@ export const AddFavoriteVoteIcon = ({
 }: AddFavoriteVoteIconProps) => {
   switch (state) {
     case 'hover': {
-      return <img src={AddFavoriteVoteHoverIcon} alt="" />;
+      return <SvgIcon component={AddFavoriteVoteHoverIcon} inheritViewBox />;
     }
     case 'active': {
-      return <img src={AddFavoriteVoteActiveIcon} alt="" />;
+      return <SvgIcon component={AddFavoriteVoteActiveIcon} inheritViewBox />;
     }
     default: {
-      return <img src={AddFavoriteVoteDefaultIcon} alt="" />;
+      return <SvgIcon component={AddFavoriteVoteDefaultIcon} inheritViewBox />;
     }
   }
 };

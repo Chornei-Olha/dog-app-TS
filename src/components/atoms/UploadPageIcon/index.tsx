@@ -1,6 +1,7 @@
 import { SvgIcon } from '@mui/material';
-import UploadPageDefaultIcon from '../../../assets/icons/UploadPageDefaultIcon.svg';
-import UploadPageActiveIcon from '../../../assets/icons/UploadPageActiveIcon.svg';
+
+import UploadPageDefaultIcon from '../../../assets/icons/UploadPageDefaultIcon.svg?react';
+import UploadPageActiveIcon from '../../../assets/icons/UploadPageActiveIcon.svg?react';
 
 type UploadPageIconProps = {
   state?: 'active' | 'default';
