@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, Button } from '@mui/material';
-import CustomBox from './components/atoms/CustomBox/СustomBox';
+import CustomBox from './components/atoms/CustomBox';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import { FavoritePageIcon } from './icons/FavoritePageIcon';

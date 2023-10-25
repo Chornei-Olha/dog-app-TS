@@ -1,14 +1,13 @@
-import { Box, BoxProps } from '@mui/material';
+import { Box, BoxProps, alpha } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { alpha } from '@mui/material';
 
-interface CustomBoxProps extends BoxProps {
+interface BorderedBoxProps extends BoxProps {
   borderRadius?: number;
   height?: number;
   showHovered: boolean;
 }
 
-const CustomBox = styled(Box)<CustomBoxProps>(
+const BorderedBox = styled(Box)<BorderedBoxProps>(
   ({ theme, borderRadius, height, showHovered }) => ({
     borderRadius: borderRadius || 20,
     height: height || 50,
@@ -27,4 +26,4 @@ const CustomBox = styled(Box)<CustomBoxProps>(
   })
 );
 
-export default CustomBox;
+export default BorderedBox;
