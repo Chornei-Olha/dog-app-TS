@@ -1,8 +1,24 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended-type-checked', '@typescript-eslint/stylistic-type-checked', 'plugin:react-hooks/recommended', 'airbnb', 'airbnb-typescript', 'airbnb/hooks', 'prettier', 'plugin:storybook/recommended'],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'storybook-static', '*.cjs', 'commitlintrc.json'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
+  ignorePatterns: [
+    'dist',
+    '.eslintrc.cjs',
+    'vite.config.ts',
+    'storybook-static',
+    '*.cjs',
+    'commitlintrc.json'
+  ],
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   settings: {
@@ -21,9 +37,9 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
-    tsconfigRootDir: __dirname,
-   },
+    project: './tsconfig.json',
+    sourceType: 'module'
+  },
   rules: {
     'import/prefer-default-export': 0,
     'react/react-in-jsx-scope': 0,
@@ -31,7 +47,7 @@ module.exports = {
     'react/function-component-definition': 0,
     '@typescript-eslint/no-explicit-any': 1,
     'prettier/prettier': [
-      'warn',
+      'error',
       {
         parser: 'typescript'
       }
