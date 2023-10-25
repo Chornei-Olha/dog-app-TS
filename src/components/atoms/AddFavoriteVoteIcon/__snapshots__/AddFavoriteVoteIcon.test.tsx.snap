@@ -2,9 +2,10 @@
 
 exports[`AddFavoriteVoteIcon should match snapshot Primary 1`] = `
 <div>
-  <img
-    alt=""
-    src="test-file-stub"
+  <test-file-stub
+    aria-hidden="true"
+    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+    focusable="false"
   />
 </div>
 `;
