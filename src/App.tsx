@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Button } from '@mui/material';
-import CustomBox from './components/atoms/CustomBox/Box';
+import CustomBox from './components/atoms/CustomBox/СustomBox';
 import reactLogo from './assets/react.svg';
 
 import './App.css';
 
 function App() {
-
   const [count, setCount] = useState(0);
   return (
     <>
@@ -29,8 +28,8 @@ function App() {
         </Button>
       </div>
 
-      <CustomBox isHovered={true} isHover={true}>
-      <p>Hello, guys!</p>
+      <CustomBox showHovered={true}>
+        <p>Hello, guys!</p>
       </CustomBox>
     </>
   );
