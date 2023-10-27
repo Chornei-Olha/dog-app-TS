@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { Box, Button } from '@mui/material';
-
+import CustomBox from './components/atoms/CustomBox';
 import reactLogo from './assets/react.svg';
-
 import './App.css';
 import { FavoritePageIcon } from './icons/FavoritePageIcon';
 import { AddFavoriteIcon } from './icons/AddFavoriteIcon';
@@ -52,6 +51,10 @@ function App() {
           <AddFavoriteVoteIcon state="active" />
         </Box>
       </div>
+
+      <CustomBox showHovered borderRadius={20}>
+        <p>Hello, guys!</p>
+      </CustomBox>
     </>
   );
 }

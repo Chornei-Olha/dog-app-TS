@@ -9,7 +9,7 @@ module.exports = {
     'airbnb-typescript',
     'airbnb/hooks',
     'prettier',
-    'plugin:storybook/recommended',
+    'plugin:storybook/recommended'
   ],
   ignorePatterns: [
     'dist',

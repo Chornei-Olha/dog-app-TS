@@ -26,7 +26,7 @@ const theme = createTheme({
       main: '#FFCF32',
       light: '#F7E4A8',
       dark: '#921FED',
-      contrastText: '#FFFFFF',
+      contrastText: '#FFFFFF'
     },
     text: {
       primary: '#5F556D'
@@ -45,18 +45,20 @@ const theme = createTheme({
     },
     background: {
       paper: '#FBFAFC'
-    },
+    }
   },
   typography: {
     fontSize: 20,
-    fontFamily: ['Dosis, FugazOne, Karantina, MedulaOne, Goldman, Mohave, MonomaniacOne, Raleway'].join(','),
+    fontFamily: [
+      'Dosis, FugazOne, Karantina, MedulaOne, Goldman, Mohave, MonomaniacOne, Raleway'
+    ].join(','),
     fontWeightRegular: 400,
     fontWeightMedium: 500,
     fontWeightBold: 600
   },
   components: {
-    MuiCssBaseline: {styleOverrides: 
-       `@font-face {
+    MuiCssBaseline: {
+      styleOverrides: `@font-face {
         font-family: 'Dosis';
         font-size: 20px;
         font-style: normal;
@@ -130,7 +132,6 @@ const theme = createTheme({
     },
 
     MuiButton: MuiButtonConfig
-
   }
 });
 
