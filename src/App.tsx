@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Button } from '@mui/material';
-import CustomBox from './components/atoms/CustomBox';
+import BorderedBox from './components/atoms/BorderedBox';
+import ModalDialog from './components/atoms/ModalDialog';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import { FavoritePageIcon } from './icons/FavoritePageIcon';
@@ -10,6 +11,14 @@ import { AddFavoriteVoteIcon } from './icons/AddFavoriteVoteIcon';
 
 function App() {
   const [toggleMouseOver, setToggleMouseOver] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -51,10 +60,16 @@ function App() {
           <AddFavoriteVoteIcon state="active" />
         </Box>
       </div>
-
-      <CustomBox showHovered borderRadius={20}>
+      <BorderedBox showHovered borderRadius={20}>
         <p>Hello, guys!</p>
-      </CustomBox>
+      </BorderedBox>
+
+      <div>
+        <button type="button" onClick={handleOpen}>
+          Hello, guys!
+        </button>
+        <ModalDialog open={open} onClose={handleClose} />
+      </div>
     </>
   );
 }
