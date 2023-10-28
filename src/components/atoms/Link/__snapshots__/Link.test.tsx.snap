@@ -15,6 +15,7 @@ exports[`atoms/Link should match snapshot Component 1`] = `
   border-radius: 6px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  white-space: nowrap;
   color: #FFCF32;
 }
 
@@ -59,6 +60,7 @@ exports[`atoms/Link should match snapshot Component 2`] = `
   border-radius: 6px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  white-space: nowrap;
   text-transform: capitalize;
   padding: 4px 10px;
 }

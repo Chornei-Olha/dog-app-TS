@@ -9,7 +9,8 @@ export const MuiLinkConfig: Components<Theme>['MuiLink'] = {
       fontSize: '20px',
       textTransform: 'lowercase',
       borderRadius: '6px',
-      transition: 'all 0.2s ease-in-out'
+      transition: 'all 0.2s ease-in-out',
+      whiteSpace: 'nowrap'
     }),
 
     underlineHover: ({ theme: { palette } }) => ({
