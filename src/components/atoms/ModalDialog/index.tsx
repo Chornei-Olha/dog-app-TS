@@ -15,10 +15,7 @@ interface ModalDialogProps {
 const StyledDialog = styled(Dialog)({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  backgroundColor: 'white',
-  boxShadow: '6px 6px 0px 0px #000000',
-  borderRadius: '20px'
+  justifyContent: 'center'
 });
 
 const StyledDialogTitle = styled(DialogTitle)({
@@ -27,7 +24,17 @@ const StyledDialogTitle = styled(DialogTitle)({
 
 // eslint-disable-next-line react/prop-types
 const ModalDialog: React.FC<ModalDialogProps> = ({ open, onClose }) => (
-  <StyledDialog open={open} onClose={onClose}>
+  <StyledDialog
+    open={open}
+    onClose={onClose}
+    PaperProps={{
+      style: {
+        borderRadius: 20,
+        background: 'white',
+        boxShadow: '6px 6px 0px 0px #000000'
+      }
+    }}
+  >
     <StyledDialogTitle>Upload a Dog image</StyledDialogTitle>
     <DialogContent>
       <DialogContentText>Information for this dialog</DialogContentText>
