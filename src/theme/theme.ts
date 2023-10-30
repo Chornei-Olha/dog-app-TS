@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { MuiButtonConfig } from './button.config';
+import { MuiLinkConfig } from './link.config';
 import Dosis from '../fonts/Dosis.ttf';
 import FugazOne from '../fonts/FugazOne.ttf';
 import Goldman from '../fonts/Goldman.ttf';
@@ -34,7 +35,8 @@ const theme = createTheme({
     grey: {
       100: '#FCFAFA',
       300: '#FBFAFC',
-      500: '#E6E6E6'
+      500: '#E6E6E6',
+      600: '#ADA7B8'
     },
     action: {
       hover: '#A239F4',
@@ -131,7 +133,8 @@ const theme = createTheme({
       }
     },
 
-    MuiButton: MuiButtonConfig
+    MuiButton: MuiButtonConfig,
+    MuiLink: MuiLinkConfig
   }
 });
 
