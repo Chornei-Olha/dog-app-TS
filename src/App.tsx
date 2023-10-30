@@ -11,12 +11,13 @@ import { AddFavoriteVoteIcon } from './icons/AddFavoriteVoteIcon';
 
 function App() {
   const [toggleMouseOver, setToggleMouseOver] = useState<boolean>(false);
+
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {
+  const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const onClose = () => {
     setOpen(false);
   };
 
@@ -64,12 +65,10 @@ function App() {
         <p>Hello, guys!</p>
       </BorderedBox>
 
-      <div>
-        <button type="button" onClick={handleOpen}>
-          Hello, guys!
-        </button>
-        <ModalDialog open={open} onClose={handleClose} />
-      </div>
+      <button type="button" onClick={handleClickOpen}>
+        Туц сюди
+      </button>
+      <ModalDialog open={open} onClose={onClose} />
     </>
   );
 }
