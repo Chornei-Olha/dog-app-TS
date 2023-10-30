@@ -2,14 +2,14 @@ import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import * as stories from './Menu.stories';
+import * as stories from './Header.stories';
 
-describe('Menu', () => {
-  const { MenuNav } = composeStories(stories);
-  it('should match snapshot Menu', () => {
+describe('RHeader', () => {
+  const { RHeader } = composeStories(stories);
+  it('should match snapshot RHeader', () => {
     const { container } = render(
       <BrowserRouter>
-        <MenuNav />
+        <RHeader />
       </BrowserRouter>
     );
     expect(container).toMatchSnapshot();

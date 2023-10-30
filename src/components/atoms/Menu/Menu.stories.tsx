@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Menu } from '.';
-import { navMenuItems } from './config';
+import { menuHeader } from '../../../utils/const';
 
 const meta = {
-  title: 'Atom/Menu',
+  title: 'Atoms/Menu',
   component: Menu,
-  argTypes: {},
   parameters: {
     layout: 'fullscreen'
   }
@@ -15,8 +14,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Nav: Story = {
+export const MenuNav: Story = {
   args: {
-    menuList: navMenuItems
+    menuList: menuHeader
   }
 };

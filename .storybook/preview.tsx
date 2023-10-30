@@ -1,12 +1,15 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { DogAppThemeProvider } from '../src/theme';
 
 const preview: Preview = {
   decorators: [
     Story => (
       <DogAppThemeProvider>
-        <Story />
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
       </DogAppThemeProvider>
     )
   ],

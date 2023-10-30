@@ -1,13 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 import App from './App';
 import './index.css';
 import { DogAppThemeProvider } from './theme';
+import { MainPage, BreedsPage } from './pages';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: '/',
+        element: <MainPage />
+      },
+      {
+        path: 'breeds',
+        element: <BreedsPage />
+      },
+      {
+        path: 'vote',
+        element: <h2>Vote</h2>
+      },
+      {
+        path: 'history',
+        element: <h2>history</h2>
+      },
+      {
+        path: 'your-uploads',
+        element: <h2>Your uploads</h2>
+      },
+      {
+        path: '*',
+        element: <div>Error 404</div>
+      }
+    ]
+  }
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <DogAppThemeProvider>
-      <App />
+      <RouterProvider router={router} />
     </DogAppThemeProvider>
   </React.StrictMode>
 );
