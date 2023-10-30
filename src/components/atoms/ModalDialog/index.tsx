@@ -4,7 +4,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 
 interface ModalDialogProps {
