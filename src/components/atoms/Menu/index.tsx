@@ -1,10 +1,8 @@
-import { Link } from '@mui/material';
-
 import { NavList, NavListItem } from './styled';
 
 type MenuItemProps = {
-  text: string;
-  path: string;
+  title: string;
+  route: string;
 };
 
 export type MenuProps = {
@@ -14,11 +12,10 @@ export type MenuProps = {
 export const Menu = ({ menuList }: MenuProps) => (
   <NavList component="nav">
     {menuList.map(item => (
-      // react-router <Link/> add
-      <NavListItem key={item.text}>
-        <Link href={item.path} variant="h2" underline="none">
-          {item.text}
-        </Link>
+      <NavListItem to={item.route} key={item.title}>
+        {({ isActive }) => (
+          <span className={isActive ? 'active' : ''}>{item.title}</span>
+        )}
       </NavListItem>
     ))}
   </NavList>

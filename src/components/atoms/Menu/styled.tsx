@@ -1,18 +1,40 @@
 import { styled } from '@mui/material/styles';
-import { List, ListItem, ListItemProps, ListProps } from '@mui/material';
+import { List, ListProps, alpha } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
-interface NavListProps extends ListProps {
-  display?: string;
-  bgcolor?: string;
-}
-
-export const NavList = styled(List)<NavListProps>(({ theme, display }) => ({
-  display: display || 'flex',
-  gap: '50px',
-  backgroundColor: theme.palette.grey[600],
+const NavList = styled(List)<ListProps>(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  maxWidth: '575px',
+  width: '100%',
   padding: 0
 }));
 
-export const NavListItem = styled(ListItem)<ListItemProps>(() => ({
-  padding: 0
+const NavListItem = styled(NavLink)(({ theme: { palette } }) => ({
+  color: palette.text.primary,
+  backgroundColor: 'transparent',
+  fontSize: '20px',
+  borderRadius: '6px',
+  transition: 'all 0.2s ease-in-out',
+  whiteSpace: 'nowrap',
+  textTransform: 'capitalize',
+  padding: '4px 10px',
+  textDecoration: 'none',
+  '&:hover': {
+    backgroundColor: palette.primary.dark,
+    color: palette.primary.contrastText
+  },
+  '&:active': {
+    backgroundColor: palette.primary.main,
+    color: palette.primary.contrastText,
+    boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`
+  },
+
+  '&.active': {
+    backgroundColor: palette.primary.main,
+    color: palette.primary.contrastText,
+    boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`
+  }
 }));
+
+export { NavList, NavListItem };
