@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 interface BorderedBoxProps extends BoxProps {
   borderRadius?: number;
-  height?: number;
+  height?: number | string;
   showHovered: boolean;
 }
 

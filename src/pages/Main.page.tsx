@@ -1,1 +1,3 @@
-export const MainPage = () => <h2>Main</h2>;
+import { MainPage } from '../components/organisms/MainPage';
+
+export const Main = () => <MainPage />;
