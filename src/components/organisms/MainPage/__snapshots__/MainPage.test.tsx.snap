@@ -1,0 +1,1278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainPage should match snapshot MainPage 1`] = `
+.emotion-0 {
+  position: relative;
+  padding-top: 100px;
+  min-height: 100vh;
+}
+
+.emotion-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  max-width: 400px;
+}
+
+.emotion-1 img {
+  width: 100%;
+}
+
+.emotion-2 {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.emotion-3 {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.emotion-4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-auto-flow: dense;
+}
+
+.emotion-5 {
+  width: 100%;
+  height: 100%;
+  min-width: 200px;
+}
+
+.emotion-5:nth-of-type(1) {
+  grid-column: 1/3;
+  grid-row: span 2;
+}
+
+.emotion-5:nth-of-type(2) {
+  grid-column: 3/4;
+  grid-row: span 1;
+}
+
+.emotion-5:nth-of-type(3) {
+  grid-column: 4/5;
+  grid-row: span 2;
+}
+
+.emotion-5:nth-of-type(4) {
+  grid-column: 3/4;
+  grid-row: span 2;
+}
+
+.emotion-5:nth-of-type(5) {
+  grid-column: 1/2;
+  grid-row: span 2;
+}
+
+.emotion-5:nth-of-type(10) {
+  grid-column: 4/5;
+  grid-row: span 1;
+}
+
+.emotion-6 {
+  box-shadow: rgba(146, 31, 237, 1);
+  height: 100%;
+  border-radius: 20px;
+  height: 100%;
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  -webkit-transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.emotion-6:hover {
+  box-shadow: 6px 6px 8px 0px rgba(25, 118, 210, 1);
+}
+
+.emotion-6:active {
+  box-shadow: 6px 6px 8px 0px rgba(25, 118, 210, 1);
+}
+
+.emotion-7 {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: none;
+  position: relative;
+  height: 100%;
+}
+
+.emotion-8 {
+  display: block;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-position: center;
+  background-position: center;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  object-fit: cover;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.emotion-9>:not(:first-of-type) {
+  margin-left: 8px;
+}
+
+.emotion-9:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.emotion-10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  overflow: visible;
+  color: rgba(0, 0, 0, 0.54);
+  -webkit-transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.emotion-10::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-10.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-10 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-10:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-10:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-10.Mui-disabled {
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-11 {
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+}
+
+.emotion-13 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  -webkit-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  color: #fff;
+  background-color: #9c27b0;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+
+.emotion-13::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-13.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-13 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-13:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #7b1fa2;
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);
+}
+
+@media (hover: none) {
+  .emotion-13:hover {
+    background-color: #9c27b0;
+  }
+}
+
+.emotion-13:active {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2),0px 8px 10px 1px rgba(0,0,0,0.14),0px 3px 14px 2px rgba(0,0,0,0.12);
+}
+
+.emotion-13.Mui-focusVisible {
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);
+}
+
+.emotion-13.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-105 {
+  position: relative;
+  width: 100%;
+  background-color: #fff;
+  text-align: right;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.emotion-107 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.emotion-108 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+  margin: 0;
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: inherit;
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  border-radius: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 6px;
+  margin: 0 3px;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.emotion-108::-moz-focus-inner {
+  border-style: none;
+}
+
+.emotion-108.Mui-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+@media print {
+  .emotion-108 {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.emotion-108.Mui-focusVisible {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.emotion-108.Mui-disabled {
+  opacity: 0.38;
+}
+
+.emotion-108:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+@media (hover: none) {
+  .emotion-108:hover {
+    background-color: transparent;
+  }
+}
+
+.emotion-108.Mui-selected {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.emotion-108.Mui-selected:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (hover: none) {
+  .emotion-108.Mui-selected:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+.emotion-108.Mui-selected.Mui-focusVisible {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.emotion-108.Mui-selected.Mui-disabled {
+  opacity: 1;
+  color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+.emotion-108.Mui-selected.Mui-disabled {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.emotion-109 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
+  font-size: 1.25rem;
+  margin: 0 -8px;
+}
+
+.emotion-122 {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  border-radius: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 32px;
+  padding: 0 6px;
+  margin: 0 3px;
+  color: rgba(0, 0, 0, 0.87);
+  height: auto;
+}
+
+.emotion-122.Mui-disabled {
+  opacity: 0.38;
+}
+
+.emotion-131 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  max-width: 400px;
+}
+
+.emotion-131 img {
+  width: 100%;
+}
+
+<div>
+  <div
+    class="MuiBox-root emotion-0"
+  >
+    <div
+      class="MuiBox-root emotion-1"
+    >
+      <img
+        alt=""
+        src="test-file-stub"
+      />
+    </div>
+    <div
+      class="MuiBox-root emotion-2"
+    >
+      <div
+        class="MuiBox-root emotion-3"
+      >
+        Filters
+      </div>
+      <div
+        class="MuiBox-root emotion-4"
+      >
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/238/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/239/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/242/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root emotion-5"
+        >
+          <div
+            class="MuiBox-root emotion-6"
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root emotion-7"
+            >
+              <img
+                alt="item"
+                class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img emotion-8"
+                src="https://picsum.photos/id/237/570/419"
+              />
+              <div
+                class="MuiCardActions-root MuiCardActions-spacing emotion-9"
+              >
+                <button
+                  aria-label="add to favorites"
+                  class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium emotion-10"
+                  tabindex="0"
+                  type="button"
+                >
+                  <test-file-stub
+                    aria-hidden="true"
+                    classname="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                    focusable="false"
+                  />
+                  <span
+                    class="MuiTouchRipple-root emotion-11"
+                  />
+                </button>
+                <div
+                  class="MuiBox-root emotion-12"
+                >
+                  <button
+                    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium emotion-13"
+                    tabindex="0"
+                    type="button"
+                  >
+                    Goldendoodle
+                    <span
+                      class="MuiTouchRipple-root emotion-11"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root emotion-105"
+      >
+        <nav
+          aria-label="pagination navigation"
+          class="MuiPagination-root MuiPagination-text emotion-106"
+        >
+          <ul
+            class="MuiPagination-ul emotion-107"
+          >
+            <li>
+              <button
+                aria-label="Go to first page"
+                class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular Mui-disabled MuiPaginationItem-firstLast emotion-108"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon emotion-109"
+                  data-testid="FirstPageIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to previous page"
+                class="MuiButtonBase-root Mui-disabled MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular Mui-disabled MuiPaginationItem-previousNext emotion-108"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon emotion-109"
+                  data-testid="NavigateBeforeIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                aria-current="true"
+                aria-label="page 1"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular Mui-selected MuiPaginationItem-page emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                1
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to page 2"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-page emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                2
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to page 3"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-page emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                3
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to page 4"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-page emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                4
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to page 5"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-page emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                5
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <div
+                class="MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-ellipsis emotion-122"
+              >
+                …
+              </div>
+            </li>
+            <li>
+              <button
+                aria-label="Go to page 10"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-page emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                10
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to next page"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-previousNext emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon emotion-109"
+                  data-testid="NavigateNextIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+            <li>
+              <button
+                aria-label="Go to last page"
+                class="MuiButtonBase-root MuiPaginationItem-root MuiPaginationItem-sizeMedium MuiPaginationItem-text MuiPaginationItem-circular MuiPaginationItem-firstLast emotion-108"
+                tabindex="0"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiPaginationItem-icon emotion-109"
+                  data-testid="LastPageIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+                  />
+                </svg>
+                <span
+                  class="MuiTouchRipple-root emotion-11"
+                />
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div
+      class="MuiBox-root emotion-131"
+    >
+      <img
+        alt=""
+        src="test-file-stub"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -3,9 +3,10 @@ import { AppBar, AppBarProps, Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Wrap = styled(AppBar)<AppBarProps>(({ theme }) => ({
-  position: 'absolute',
+  position: 'fixed',
   top: 0,
   left: 0,
+  zIndex: 5,
   backgroundColor: theme.palette.grey[600],
   borderRadius: '0 0 32px 32px',
   boxShadow: `3px 3px 0px 0px ${theme.palette.common.black}`,
