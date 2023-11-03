@@ -1,5 +1,7 @@
 import { Box, styled } from '@mui/material';
+
 import { GridCard } from '../GridCard';
+import { useGetImagesQuery } from '../../../services/images';
 
 const List = styled(Box)(() => ({
   display: 'grid',
@@ -13,10 +15,11 @@ const Item = styled(Box)(() => ({
   width: '100%',
   height: '100%',
   minWidth: '200px',
+  gridRow: 'span 1',
 
   '&:nth-of-type(1)': {
-    gridColumn: '1 / 3;',
-    gridRow: 'span 2'
+    gridColumn: '1/3;',
+    gridRow: '1/3'
   },
 
   '&:nth-of-type(2)': {
@@ -26,7 +29,7 @@ const Item = styled(Box)(() => ({
 
   '&:nth-of-type(3)': {
     gridColumn: '4 / 5',
-    gridRow: 'span 2'
+    gridRow: '1/3'
   },
 
   '&:nth-of-type(4)': {
@@ -45,26 +48,15 @@ const Item = styled(Box)(() => ({
   }
 }));
 
-const imagesList = [
-  'https://picsum.photos/id/237/570/419',
-  'https://picsum.photos/id/238/570/419',
-  'https://picsum.photos/id/239/570/419',
-  'https://picsum.photos/id/242/570/419',
-  'https://picsum.photos/id/237/570/419',
-  'https://picsum.photos/id/237/570/419',
-  'https://picsum.photos/id/237/570/419',
-  'https://picsum.photos/id/237/570/419',
-  'https://picsum.photos/id/237/570/419',
-  'https://picsum.photos/id/237/570/419'
-];
-
-export const Grid = () => (
-  <List>
-    {imagesList.map((item, idx) => (
-      // eslint-disable-next-line react/no-array-index-key
-      <Item key={idx}>
-        <GridCard imgUrl={item} />
-      </Item>
-    ))}
-  </List>
-);
+export const Grid = () => {
+  const { data: images } = useGetImagesQuery({ limit: 10, page: 0 });
+  return (
+    <List>
+      {(images || []).map(item => (
+        <Item key={item.id}>
+          <GridCard imgUrl={item.url} />
+        </Item>
+      ))}
+    </List>
+  );
+};
