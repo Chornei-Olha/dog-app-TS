@@ -1,1 +1,2 @@
-export const BreedsPage = () => <h2>Breeds</h2>;
+import BreedCard from
+export const BreedsPage = () => <h2><BreedCard></h2>;

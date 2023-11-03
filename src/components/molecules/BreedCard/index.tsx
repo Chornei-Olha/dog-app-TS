@@ -25,10 +25,16 @@ const BreedCard: React.FC<BreedCardProps> = ({
       <h2>{name}</h2>
       <p>{temperament}</p>
 
-      {isHovered && (
-        <div className="more-info">
-          <p>{moreInfo}</p>
-        </div>
+      {isHovered && <div className="more-info">{/* <p>{moreInfo}</p> */}</div>}
+
+      {moreInfo && (
+        <button
+          type="button"
+          onClick={() => alert(moreInfo)}
+          className="more-info-button"
+        >
+          More Info
+        </button>
       )}
     </div>
   );
