@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Header from '.';
+import { MainPage } from '.';
 
 const meta = {
-  title: 'Organisms/Header',
-  component: Header,
+  title: 'Organisms/MainPage',
+  component: MainPage,
   argTypes: {},
   parameters: {
     layout: 'fullscreen'
   }
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof MainPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const RHeader: Story = {
-  render: () => <Header />
+export const Page: Story = {
+  render: () => <MainPage />
 };

@@ -6,7 +6,7 @@ import { api } from './services/api';
 import App from './App';
 import './index.css';
 import { DogAppThemeProvider } from './theme';
-import { MainPage, BreedsPage } from './pages';
+import { Main, BreedsPage } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <MainPage />
+        element: <Main />
       },
       {
         path: 'breeds',
