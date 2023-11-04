@@ -46,18 +46,4 @@ const FiltersWrap = styled(Box)(({ theme: { palette } }) => ({
   textAlign: 'center'
 }));
 
-const PaginationWrap = styled(Box)(({ theme: { palette } }) => ({
-  position: 'relative',
-  width: '100%',
-  backgroundColor: palette.background.paper,
-  textAlign: 'right'
-}));
-
-export {
-  Wrap,
-  Container,
-  ShadowTopWrap,
-  ShadowBottomWrap,
-  FiltersWrap,
-  PaginationWrap
-};
+export { Wrap, Container, ShadowTopWrap, ShadowBottomWrap, FiltersWrap };
