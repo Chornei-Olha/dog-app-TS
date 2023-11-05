@@ -1,7 +1,12 @@
-// import BreedCard from '../components/molecules/BreedCard/index';
+import BreedList from '../components/organisms/BreedList';
+import Header from '../components/organisms/Header';
+import { Grid } from '../../molecules/Grid';
 
-// export const BreedsPage = () => (
-//   <h2>
-//     <BreedCard image="" name="" temperament="" moreInfo="" />
-//   </h2>
-// );
+const BreedsPage = () => (
+  <>
+    <Header />
+    <BreedList />
+  </>
+);
+
+export default BreedsPage;
