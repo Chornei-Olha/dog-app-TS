@@ -13,18 +13,28 @@ interface BreedListProps {
   breedsData: Breed[];
 }
 
-const BreedList: React.FC<BreedListProps> = ({ breedsData }) => (
-  <div className="breed-list">
-    {breedsData.map(breed => (
-      <BreedCard
-        key={breed.id}
-        name={breed.name}
-        image={breed.image}
-        temperament={breed.temperament}
-        moreInfo={breed.moreInfo}
-      />
-    ))}
-  </div>
-);
+const BreedList: React.FC<BreedListProps> = ({ breedsData }) => {
+  const gridStyles = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateRows: 'repeat(2, 1fr)',
+    gridGap: '22px',
+    margin: '0 140px'
+  };
+
+  return (
+    <div className="breed-list" style={gridStyles}>
+      {breedsData.map(breed => (
+        <BreedCard
+          key={breed.id}
+          name={breed.name}
+          image={breed.image}
+          temperament={breed.temperament}
+          moreInfo={breed.moreInfo}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default BreedList;

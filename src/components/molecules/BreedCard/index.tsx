@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import BorderedBox from '../../atoms/BorderedBox';
+import { Link } from '@mui/material';
 
 interface BreedCardProps {
   image: string;
@@ -16,27 +18,32 @@ const BreedCard: React.FC<BreedCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div
-      className="breed-card"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <BorderedBox
+      sx={{
+        width: '100%',
+        margin: '0'
+      }}
     >
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>{temperament}</p>
+      <div
+        className="breed-card"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <img src={image} alt={name} />
+        <h2>{name}</h2>
+        <p>{temperament}</p>
 
-      {isHovered && <div className="more-info">{/* <p>{moreInfo}</p> */}</div>}
+        {isHovered && (
+          <div className="more-info">{/* <p>{moreInfo}</p> */}</div>
+        )}
 
-      {moreInfo && (
-        <button
-          type="button"
-          onClick={() => alert(moreInfo)}
-          className="more-info-button"
-        >
-          More Info
-        </button>
-      )}
-    </div>
+        {moreInfo && (
+          <Link href="/" variant="inherit" underline="hover">
+            more...
+          </Link>
+        )}
+      </div>
+    </BorderedBox>
   );
 };
 
