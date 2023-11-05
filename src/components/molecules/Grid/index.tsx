@@ -1,7 +1,7 @@
 import { Box, styled } from '@mui/material';
 
 import { GridCard } from '../GridCard';
-import { useGetImagesQuery } from '../../../services/images';
+import { Images } from '../../../services/images';
 
 const List = styled(Box)(() => ({
   display: 'grid',
@@ -48,15 +48,16 @@ const Item = styled(Box)(() => ({
   }
 }));
 
-export const Grid = () => {
-  const { data: images } = useGetImagesQuery({ limit: 10, page: 0 });
-  return (
-    <List>
-      {(images || []).map(item => (
-        <Item key={item.id}>
-          <GridCard imgUrl={item.url} />
-        </Item>
-      ))}
-    </List>
-  );
+type GridProps = {
+  listImages: Images[];
 };
+
+export const Grid = ({ listImages }: GridProps) => (
+  <List>
+    {(listImages || []).map(item => (
+      <Item key={item.id}>
+        <GridCard imgUrl={item.url} />
+      </Item>
+    ))}
+  </List>
+);

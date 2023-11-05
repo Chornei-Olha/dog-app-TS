@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import { MuiButtonConfig } from './button.config';
 import { MuiLinkConfig } from './link.config';
+import { MuiPaginationConfig } from './pagination.config';
 import Dosis from '../fonts/Dosis.ttf';
 import FugazOne from '../fonts/FugazOne.ttf';
 import Goldman from '../fonts/Goldman.ttf';
@@ -134,7 +135,8 @@ const theme = createTheme({
     },
 
     MuiButton: MuiButtonConfig,
-    MuiLink: MuiLinkConfig
+    MuiLink: MuiLinkConfig,
+    MuiPagination: MuiPaginationConfig
   }
 });
 
