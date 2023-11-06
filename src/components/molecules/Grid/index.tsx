@@ -56,7 +56,7 @@ export const Grid = ({ listImages }: GridProps) => (
   <List>
     {(listImages || []).map(item => (
       <Item key={item.id}>
-        <GridCard imgUrl={item.url} />
+        <GridCard imgUrl={item.url} id={item.id} />
       </Item>
     ))}
   </List>
