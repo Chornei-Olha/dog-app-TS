@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BreedCard from '../../molecules/BreedCard';
+
+// import {
+//   useGetBreedsQuery,
+//   useGetBreedImagesQuery
+// } from '../../../services/api';
+import { useGetImagesQuery } from '../../../services/images';
 
 interface Breed {
   id: number;
@@ -21,14 +27,17 @@ const BreedList: React.FC<BreedListProps> = ({ breedsData }) => {
     gridGap: '22px',
     margin: '0 140px'
   };
+  const [page, setPage] = useState(1);
+
+  const { data: images, isLoading } = useGetImagesQuery({ limit: 10, page });
 
   return (
     <div className="breed-list" style={gridStyles}>
-      {breedsData.map(breed => (
+      {breedsData.map((breed, index) => (
         <BreedCard
           key={breed.id}
           name={breed.name}
-          image={breed.image}
+          image={images?.[index]?.url || breed.image}
           temperament={breed.temperament}
           moreInfo={breed.moreInfo}
         />
@@ -36,5 +45,4 @@ const BreedList: React.FC<BreedListProps> = ({ breedsData }) => {
     </div>
   );
 };
-
 export default BreedList;
