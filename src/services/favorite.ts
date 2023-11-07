@@ -22,7 +22,7 @@ export const favoritesApi = api.injectEndpoints({
     addFavorite: build.mutation<unknown, Favorite>({
       query: body => ({
         url: `favourites`,
-        methods: 'POST',
+        method: 'POST',
         body
       }),
       invalidatesTags: [{ type: 'Favorites', id: 'LIST' }]

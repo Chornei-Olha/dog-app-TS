@@ -7,7 +7,7 @@ export const Favorite = () => {
     <Box sx={{ paddingTop: '80px' }}>
       <div>Favorite</div>
       {isLoading && <div>Loading...</div>}
-      {data && <div>{data.length}</div>}
+      {data && data.map(item => <div key={item.id}>{item.id}</div>)}
     </Box>
   );
 };

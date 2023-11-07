@@ -15,7 +15,7 @@ type GridCardProps = {
 export const GridCard = ({ id, imgUrl }: GridCardProps) => {
   const [addFavorite] = useAddFavoriteMutation();
 
-  const handleAddFavorite = () => () => {
+  const handleAddFavorite = () => {
     addFavorite({ image_id: id });
   };
 
@@ -42,9 +42,6 @@ export const GridCard = ({ id, imgUrl }: GridCardProps) => {
 
         <WrapActions>
           <WrapTop>
-            <button type="button" onClick={handleAddFavorite}>
-              btn
-            </button>
             <Button
               variant="contained"
               color="secondary"
