@@ -42,10 +42,13 @@ export const GridCard = ({ id, imgUrl }: GridCardProps) => {
 
         <WrapActions>
           <WrapTop>
+            <button type="button" onClick={handleAddFavorite}>
+              btn
+            </button>
             <Button
               variant="contained"
               color="secondary"
-              onClick={handleAddFavorite()}
+              onClick={handleAddFavorite}
               aria-label="add to favorites"
             >
               <AddFavoriteIcon state="hover" />
