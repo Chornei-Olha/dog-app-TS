@@ -8,7 +8,7 @@ import { api } from './services/api';
 import App from './App';
 import './index.css';
 import { DogAppThemeProvider } from './theme';
-import { Main, BreedsPage } from './pages';
+import { Main, BreedsPage, Favorite } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: 'history',
         element: <h2>history</h2>
+      },
+      {
+        path: 'favorite',
+        element: <Favorite />
       },
       {
         path: 'your-uploads',

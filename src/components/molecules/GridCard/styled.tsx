@@ -1,4 +1,4 @@
-import { Box, CardActions, IconButton } from '@mui/material';
+import { Box, CardActions } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
 
 const WrapActions = styled(CardActions)(({ theme: { palette } }) => ({
@@ -20,11 +20,11 @@ const WrapActions = styled(CardActions)(({ theme: { palette } }) => ({
   }
 }));
 
-const WrapIcon = styled(IconButton)(() => ({
+const WrapTop = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'flex-end',
   width: '100%'
 }));
 const WrapBtn = styled(Box)(() => ({}));
 
-export { WrapActions, WrapIcon, WrapBtn };
+export { WrapActions, WrapTop, WrapBtn };

@@ -39,11 +39,12 @@ const ShadowBottomWrap = styled(Box)(() => ({
   }
 }));
 
-const FiltersWrap = styled(Box)(({ theme: { palette } }) => ({
+const FiltersWrap = styled(Box)(() => ({
   position: 'relative',
   width: '100%',
-  backgroundColor: palette.background.paper,
-  textAlign: 'center'
+  textAlign: 'center',
+  display: 'flex',
+  justifyContent: 'space-between'
 }));
 
 export { Wrap, Container, ShadowTopWrap, ShadowBottomWrap, FiltersWrap };
