@@ -1,59 +1,43 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import BreedList from '.';
-// import BreedCard from '../../molecules/BreedCard';
 
-export default {
-  title: 'Components/BreedList',
-  component: BreedList
-} as Meta;
+const meta = {
+  title: 'Organisms/BreedList',
+  component: BreedList,
+  argTypes: {},
+  parameters: {
+    layout: 'fullscreen'
+  }
+} satisfies Meta<typeof BreedList>;
 
-const Template: Story<BreedListProps> = args => <BreedList {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = Template.bind({});
-Default.args = {
-  breedsData: [
-    {
-      id: 1,
-      name: 'Golden Retriever',
-      image: 'https://example.com/golden.jpg',
-      temperament: 'Intelligent, Friendly, Devoted',
-      moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
-    },
-    {
-      id: 1,
-      name: 'Golden Retriever',
-      image: 'https://example.com/golden.jpg',
-      temperament: 'Intelligent, Friendly, Devoted',
-      moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
-    },
-    {
-      id: 1,
-      name: 'Golden Retriever',
-      image: 'https://example.com/golden.jpg',
-      temperament: 'Intelligent, Friendly, Devoted',
-      moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
-    },
-    {
-      id: 1,
-      name: 'Golden Retriever',
-      image: 'https://example.com/golden.jpg',
-      temperament: 'Intelligent, Friendly, Devoted',
-      moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
-    },
-    {
-      id: 1,
-      name: 'Golden Retriever',
-      image: 'https://example.com/golden.jpg',
-      temperament: 'Intelligent, Friendly, Devoted',
-      moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
-    },
-    {
-      id: 1,
-      name: 'Golden Retriever',
-      image: 'https://example.com/golden.jpg',
-      temperament: 'Intelligent, Friendly, Devoted',
-      moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
-    }
-  ]
+export const Page: Story = {
+  args: {
+    breedsData: [
+      {
+        id: 1,
+        name: 'Golden Retriever',
+        image: 'https://example.com/golden.jpg',
+        temperament: 'Intelligent, Friendly, Devoted',
+        moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
+      },
+      {
+        id: 2,
+        name: 'Golden Retriever',
+        image: 'https://example.com/golden.jpg',
+        temperament: 'Intelligent, Friendly, Devoted',
+        moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
+      },
+      {
+        id: 3,
+        name: 'Golden Retriever',
+        image: 'https://example.com/golden.jpg',
+        temperament: 'Intelligent, Friendly, Devoted',
+        moreInfo: 'The Golden Retriever is one of the most popular dog breeds.'
+      }
+    ]
+  }
 };
