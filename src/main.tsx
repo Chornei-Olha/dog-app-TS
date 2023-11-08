@@ -8,7 +8,7 @@ import { api } from './services/api';
 import App from './App';
 import './index.css';
 import { DogAppThemeProvider } from './theme';
-import { Main, BreedsPage, Favorite } from './pages';
+import { Main, Breeds, Favorite } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'breeds',
-        element: <BreedsPage />
+        element: <Breeds />
       },
       {
         path: 'vote',

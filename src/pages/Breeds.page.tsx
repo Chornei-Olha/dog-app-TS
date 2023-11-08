@@ -1,12 +1,12 @@
-import BreedList from '../components/organisms/BreedList';
+import BreedList from '../components/organisms/BreedList/index';
 import Header from '../components/organisms/Header';
-import { Grid } from '../../molecules/Grid';
+// import { Grid } from '../../molecules/Grid';
 
-const BreedsPage = () => (
+const Breeds = () => (
   <>
     <Header />
     <BreedList />
   </>
 );
 
-export default BreedsPage;
+export default Breeds;

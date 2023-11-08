@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
 import { useGetImagesQuery } from '../../../services/images';
 import { useGetBreedsQuery } from '../../../services/breeds';
-import { Pagination } from '@mui/material';
 
 interface Breed {
   id: number;
@@ -53,7 +53,7 @@ const BreedList: React.FC<BreedListProps> = () => {
           moreInfo={breed.moreInfo}
         />
       ))}
-      {breeds && breeds.length > perPage && (
+      {breeds && breeds.length && breeds.length > perPage && (
         <Pagination
           count={Math.ceil(breeds.length / perPage)}
           page={page}
