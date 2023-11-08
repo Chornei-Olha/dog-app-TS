@@ -10,9 +10,10 @@ import { useAddFavoriteMutation } from '../../../services/favorite';
 type GridCardProps = {
   id: string;
   imgUrl: string;
+  isFavorite: boolean;
 };
 
-export const GridCard = ({ id, imgUrl }: GridCardProps) => {
+export const GridCard = ({ id, imgUrl, isFavorite }: GridCardProps) => {
   const [addFavorite] = useAddFavoriteMutation();
 
   const handleAddFavorite = () => {
@@ -39,7 +40,6 @@ export const GridCard = ({ id, imgUrl }: GridCardProps) => {
           alt="item"
           sx={{ height: '100%', objectFit: 'cover' }}
         />
-
         <WrapActions>
           <WrapTop>
             <Button
@@ -48,7 +48,7 @@ export const GridCard = ({ id, imgUrl }: GridCardProps) => {
               onClick={handleAddFavorite}
               aria-label="add to favorites"
             >
-              <AddFavoriteIcon state="hover" />
+              <AddFavoriteIcon state={isFavorite ? 'active' : 'default'} />
             </Button>
           </WrapTop>
           <WrapBtn>

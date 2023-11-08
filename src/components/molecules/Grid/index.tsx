@@ -48,15 +48,19 @@ const Item = styled(Box)(() => ({
   }
 }));
 
-type GridProps = {
-  listImages: Images[];
-};
+interface ListImagesProps extends Images {
+  isFavorite: boolean;
+}
+
+interface GridProps {
+  listImages: ListImagesProps[];
+}
 
 export const Grid = ({ listImages }: GridProps) => (
   <List>
     {(listImages || []).map(item => (
       <Item key={item.id}>
-        <GridCard imgUrl={item.url} id={item.id} />
+        <GridCard imgUrl={item.url} id={item.id} isFavorite={item.isFavorite} />
       </Item>
     ))}
   </List>
