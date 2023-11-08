@@ -17,7 +17,7 @@ import {
   FiltersWrap
 } from './styled';
 import { Grid } from '../../molecules/Grid';
-import { useGetImagesQuery } from '../../../services/images';
+import { useGetImagesWithFavorites } from '../../../utils/hooks';
 
 const listFormats = [
   { title: 'All', value: 'All' },
@@ -30,8 +30,7 @@ export const MainPage = () => {
   const [page, setPage] = useState<number>(1);
   const [imageFormat, setImageFormat] = useState<string>('all');
   const [order, setImageOrder] = useState<string>('RANDOM');
-
-  const { data: images, isLoading } = useGetImagesQuery({
+  const { data: favoritedImages, isLoading } = useGetImagesWithFavorites({
     limit: 10,
     page,
     mime_type: imageFormat,
@@ -110,7 +109,7 @@ export const MainPage = () => {
           </Box>
         </FiltersWrap>
         {isLoading && <div>Loading...</div>}
-        {images && <Grid listImages={images} />}
+        {favoritedImages && <Grid listImages={favoritedImages} />}
 
         <Pagination
           count={3}

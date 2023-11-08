@@ -1,4 +1,4 @@
-import { Button, Card, CardMedia, alpha } from '@mui/material';
+import { Button, Card, CardMedia, IconButton, alpha } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
@@ -10,9 +10,10 @@ import { useAddFavoriteMutation } from '../../../services/favorite';
 type GridCardProps = {
   id: string;
   imgUrl: string;
+  isFavorite: boolean;
 };
 
-export const GridCard = ({ id, imgUrl }: GridCardProps) => {
+export const GridCard = ({ id, imgUrl, isFavorite }: GridCardProps) => {
   const [addFavorite] = useAddFavoriteMutation();
 
   const handleAddFavorite = () => {
@@ -39,17 +40,14 @@ export const GridCard = ({ id, imgUrl }: GridCardProps) => {
           alt="item"
           sx={{ height: '100%', objectFit: 'cover' }}
         />
-
         <WrapActions>
           <WrapTop>
-            <Button
-              variant="contained"
-              color="secondary"
+            <IconButton
               onClick={handleAddFavorite}
               aria-label="add to favorites"
             >
-              <AddFavoriteIcon state="hover" />
-            </Button>
+              <AddFavoriteIcon state={isFavorite ? 'active' : 'default'} />
+            </IconButton>
           </WrapTop>
           <WrapBtn>
             <NavLink to="/breeds">

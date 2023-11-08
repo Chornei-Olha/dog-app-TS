@@ -12,10 +12,9 @@ const WrapActions = styled(CardActions)(({ theme: { palette } }) => ({
   bottom: 0,
   width: '100%',
   height: '100%',
-  opacity: 0,
-  transition: 'opacity 0.3s ease-in-out',
+  backgroundColor: 'transparent',
+  transition: 'background-color 0.3s ease-in-out',
   '&:hover': {
-    opacity: 1,
     backgroundColor: alpha(palette.common.black, 0.2)
   }
 }));
