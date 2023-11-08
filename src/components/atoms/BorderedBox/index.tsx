@@ -10,7 +10,7 @@ interface BorderedBoxProps extends BoxProps {
 const BorderedBox = styled(Box)<BorderedBoxProps>(
   ({ theme, borderRadius, height, showHovered }) => ({
     borderRadius: borderRadius || 20,
-    height: height || 50,
+    // height: height || 50,
     boxShadow: `6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`,
     transition: 'box-shadow 0.3s ease-in-out',
     '&:hover': {
