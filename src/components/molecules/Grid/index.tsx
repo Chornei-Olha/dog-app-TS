@@ -52,7 +52,7 @@ interface ListImagesProps extends Images {
   isFavorite: boolean;
 }
 
-interface GridProps {
+export interface GridProps {
   listImages: ListImagesProps[];
 }
 
@@ -60,7 +60,13 @@ export const Grid = ({ listImages }: GridProps) => (
   <List>
     {(listImages || []).map(item => (
       <Item key={item.id}>
-        <GridCard imgUrl={item.url} id={item.id} isFavorite={item.isFavorite} />
+        <GridCard
+          imgUrl={item.url}
+          id={item.id}
+          isFavorite={item.isFavorite}
+          breed={item.breeds[0]?.breed_group || 'learn more'}
+          cardType="main"
+        />
       </Item>
     ))}
   </List>

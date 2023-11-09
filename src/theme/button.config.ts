@@ -9,8 +9,11 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       textTransform: 'none',
       fontSize: 20,
       lineHeight: 1.6,
-      padding: theme.spacing(1, 5),
+      padding: theme.spacing(1, 2),
+      transition: 'all 0.2s ease-in-out',
       '&:hover, &:active': {
+        backgroundColor: 'transparent',
+        color: theme.palette.common.white,
         boxShadow: 'none',
         outline: 'none'
       }
@@ -31,17 +34,20 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
 
-    containedSecondary: ({ theme: { palette } }) => ({
+    containedSecondary: ({ theme: { spacing, palette } }) => ({
       backgroundColor: palette.grey[100],
       color: palette.secondary.dark,
       boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`,
       transition: 'all 0.2s ease-in-out',
+      padding: spacing(1, 2),
       '&:hover': {
         backgroundColor: palette.grey[300],
+        color: palette.secondary.dark,
         boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`
       },
       '&:active': {
         backgroundColor: palette.grey[500],
+        color: palette.secondary.dark,
         boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`
       }
     }),
