@@ -1,65 +1,37 @@
-import { Button, Card, CardMedia, alpha } from '@mui/material';
-import { NavLink } from 'react-router-dom';
-
-import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
-import BorderedBox from '../../atoms/BorderedBox';
+import { CardMedia, alpha } from '@mui/material';
 import theme from '../../../theme/theme';
-import { WrapActions, WrapTop, WrapBtn } from './styled';
-import { useAddFavoriteMutation } from '../../../services/favorite';
+import { CardBorder, CardBox } from './styled';
+import { GridCardActions } from '../GridCardActions';
 
-type GridCardProps = {
-  id: string;
+export interface GridCardProps {
+  id: number | string;
   imgUrl: string;
-};
+  isFavorite?: boolean;
+  breed?: string;
+  cardType: 'main' | 'upload';
+}
 
-export const GridCard = ({ id, imgUrl }: GridCardProps) => {
-  const [addFavorite] = useAddFavoriteMutation();
-
-  const handleAddFavorite = () => {
-    addFavorite({ image_id: id });
-  };
-
-  return (
-    <BorderedBox
-      showHovered
-      boxShadow={alpha(theme.palette.primary.main, 1)}
-      height="100%"
-    >
-      <Card
-        sx={{
-          borderRadius: '20px',
-          boxShadow: 'none',
-          position: 'relative',
-          height: '100%'
-        }}
-      >
-        <CardMedia
-          component="img"
-          image={imgUrl || 'https://picsum.photos/id/237/570/419'}
-          alt="item"
-          sx={{ height: '100%', objectFit: 'cover' }}
-        />
-
-        <WrapActions>
-          <WrapTop>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleAddFavorite}
-              aria-label="add to favorites"
-            >
-              <AddFavoriteIcon state="hover" />
-            </Button>
-          </WrapTop>
-          <WrapBtn>
-            <NavLink to="/breeds">
-              <Button variant="contained" color="secondary">
-                Goldendoodle
-              </Button>
-            </NavLink>
-          </WrapBtn>
-        </WrapActions>
-      </Card>
-    </BorderedBox>
-  );
-};
+export const GridCard = ({
+  id,
+  imgUrl,
+  isFavorite = false,
+  breed = 'learn more',
+  cardType = 'main'
+}: GridCardProps) => (
+  <CardBorder showHovered boxShadow={alpha(theme.palette.primary.main, 1)}>
+    <CardBox>
+      <CardMedia
+        component="img"
+        image={imgUrl || 'http://via.placeholder.com/640x360'}
+        alt="item"
+        sx={{ height: '100%', objectFit: 'cover' }}
+      />
+      <GridCardActions
+        id={id}
+        isFavorite={isFavorite}
+        breed={breed}
+        cardType={cardType}
+      />
+    </CardBox>
+  </CardBorder>
+);

@@ -1,13 +1,3 @@
-import { Box } from '@mui/material';
-import { useGetFavoritesQuery } from '../services/favorite';
+import { FavoritePage } from '../components/organisms/FavoritePage';
 
-export const Favorite = () => {
-  const { data, isLoading } = useGetFavoritesQuery();
-  return (
-    <Box sx={{ paddingTop: '80px' }}>
-      <div>Favorite</div>
-      {isLoading && <div>Loading...</div>}
-      {data && data.map(item => <div key={item.id}>{item.id}</div>)}
-    </Box>
-  );
-};
+export const Favorite = () => <FavoritePage />;

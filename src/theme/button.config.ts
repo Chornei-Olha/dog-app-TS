@@ -6,18 +6,23 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       fontFamily: 'Dosis',
       borderRadius: 10,
       boxShadow: 'none',
-      textTransform: 'none',
+      textTransform: 'capitalize',
       fontSize: 20,
+      fontWeight: theme.typography.fontWeightBold,
       lineHeight: 1.6,
-      padding: theme.spacing(1, 5),
+      padding: theme.spacing(1, 2),
+      transition: 'all 0.2s ease-in-out',
       '&:hover, &:active': {
+        backgroundColor: 'transparent',
+        color: theme.palette.common.white,
         boxShadow: 'none',
         outline: 'none'
       }
     }),
 
-    containedPrimary: ({ theme: { palette } }) => ({
+    containedPrimary: ({ theme: { palette, typography } }) => ({
       color: palette.primary.contrastText,
+      fontWeight: typography.fontWeightRegular,
       backgroundColor: palette.primary.main,
       boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`,
       transition: 'all 0.2s ease-in-out',
@@ -31,23 +36,28 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
 
-    containedSecondary: ({ theme: { palette } }) => ({
+    containedSecondary: ({ theme: { spacing, palette, typography } }) => ({
       backgroundColor: palette.grey[100],
       color: palette.secondary.dark,
+      fontWeight: typography.fontWeightRegular,
       boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`,
       transition: 'all 0.2s ease-in-out',
+      padding: spacing(1, 2),
       '&:hover': {
         backgroundColor: palette.grey[300],
+        color: palette.secondary.dark,
         boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`
       },
       '&:active': {
         backgroundColor: palette.grey[500],
+        color: palette.secondary.dark,
         boxShadow: `3px 3px 0px 0px ${alpha(palette.common.black, 1)}`
       }
     }),
 
-    outlinedPrimary: ({ theme: { palette } }) => ({
+    outlinedPrimary: ({ theme: { palette, typography } }) => ({
       color: palette.primary.main,
+      fontWeight: typography.fontWeightRegular,
       backgroundColor: 'transparent',
       border: `1px solid ${palette.primary.main}`,
       position: 'relative',
@@ -76,9 +86,10 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
 
-    outlinedSecondary: ({ theme: { palette } }) => ({
+    outlinedSecondary: ({ theme: { palette, typography } }) => ({
       color: palette.primary.contrastText,
       backgroundColor: 'transparent',
+      fontWeight: typography.fontWeightRegular,
       border: `1px solid ${palette.secondary.contrastText}`,
       '&:hover': {
         border: `1px solid ${palette.grey[100]}`

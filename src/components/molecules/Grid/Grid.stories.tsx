@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 
 import { Grid } from '.';
 
@@ -8,8 +8,5 @@ const meta = {
 } satisfies Meta<typeof Grid>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const MainGrid: Story = {
-  args: {}
-};
+export const MainGrid = {};

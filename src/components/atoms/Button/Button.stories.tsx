@@ -1,6 +1,9 @@
 import { Button } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react';
 
+import ArrowIcon from '../../../assets/icons/ArrowIcon.svg?react';
+import PawIcon from '../../../assets/icons/PawIcon.svg?react';
+
 const meta = {
   title: 'Atoms/Button',
   component: Button,
@@ -28,5 +31,15 @@ export const Secondary: Story = {
     variant: 'outlined',
     color: 'secondary',
     children: 'Button'
+  }
+};
+
+export const SecondaryWithIcons: Story = {
+  args: {
+    variant: 'contained',
+    color: 'secondary',
+    startIcon: <PawIcon />,
+    endIcon: <ArrowIcon />,
+    children: 'Goldendoodle'
   }
 };

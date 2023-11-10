@@ -2,9 +2,7 @@ import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const Wrap = styled(Box)(() => ({
-  position: 'relative',
-  paddingTop: '100px',
-  minHeight: '100vh'
+  paddingTop: '150px'
 }));
 
 const Container = styled(Box)(() => ({
@@ -39,12 +37,4 @@ const ShadowBottomWrap = styled(Box)(() => ({
   }
 }));
 
-const FiltersWrap = styled(Box)(() => ({
-  position: 'relative',
-  width: '100%',
-  textAlign: 'center',
-  display: 'flex',
-  justifyContent: 'space-between'
-}));
-
-export { Wrap, Container, ShadowTopWrap, ShadowBottomWrap, FiltersWrap };
+export { Wrap, Container, ShadowTopWrap, ShadowBottomWrap };

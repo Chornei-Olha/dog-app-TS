@@ -50,11 +50,15 @@ exports[`Button should match snapshot Component 1`] = `
   font-family: Dosis;
   border-radius: 10px;
   box-shadow: none;
-  text-transform: none;
+  text-transform: capitalize;
   font-size: 20px;
+  font-weight: 600;
   line-height: 1.6;
-  padding: 8px 40px;
+  padding: 8px 16px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: #FFFFFF;
+  font-weight: 400;
   background-color: #921FED;
   box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
   -webkit-transition: all 0.2s ease-in-out;
@@ -106,6 +110,8 @@ exports[`Button should match snapshot Component 1`] = `
 
 .emotion-0:hover,
 .emotion-0:active {
+  background-color: transparent;
+  color: #FFFFFF;
   box-shadow: none;
   outline: none;
 }
@@ -180,12 +186,16 @@ exports[`Button should match snapshot Component 2`] = `
   font-family: Dosis;
   border-radius: 10px;
   box-shadow: none;
-  text-transform: none;
+  text-transform: capitalize;
   font-size: 20px;
+  font-weight: 600;
   line-height: 1.6;
-  padding: 8px 40px;
+  padding: 8px 16px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: #FFFFFF;
   background-color: transparent;
+  font-weight: 400;
   border: 1px solid #FFFFFF;
 }
 
@@ -225,6 +235,8 @@ exports[`Button should match snapshot Component 2`] = `
 
 .emotion-0:hover,
 .emotion-0:active {
+  background-color: transparent;
+  color: #FFFFFF;
   box-shadow: none;
   outline: none;
 }

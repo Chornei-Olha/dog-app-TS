@@ -1,30 +1,16 @@
-import { Box, CardActions } from '@mui/material';
-import { alpha, styled } from '@mui/material/styles';
+import { Card } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import BorderedBox from '../../atoms/BorderedBox';
 
-const WrapActions = styled(CardActions)(({ theme: { palette } }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  width: '100%',
-  height: '100%',
-  opacity: 0,
-  transition: 'opacity 0.3s ease-in-out',
-  '&:hover': {
-    opacity: 1,
-    backgroundColor: alpha(palette.common.black, 0.2)
-  }
+const CardBorder = styled(BorderedBox)(() => ({
+  height: '100%'
 }));
 
-const WrapTop = styled(Box)(() => ({
-  display: 'flex',
-  justifyContent: 'flex-end',
-  width: '100%'
+const CardBox = styled(Card)(() => ({
+  borderRadius: '20px',
+  boxShadow: 'none',
+  position: 'relative',
+  height: '100%'
 }));
-const WrapBtn = styled(Box)(() => ({}));
 
-export { WrapActions, WrapTop, WrapBtn };
+export { CardBorder, CardBox };
