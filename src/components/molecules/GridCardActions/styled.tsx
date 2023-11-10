@@ -16,7 +16,7 @@ const WrapActions = styled(CardActions)(({ theme: { palette } }) => ({
   backgroundColor: 'transparent',
   transition: 'background-color 0.3s ease-in-out',
   '&:hover': {
-    backgroundColor: alpha(palette.common.black, 0.2)
+    backgroundColor: alpha(palette.common.black, 0.45)
   }
 }));
 

@@ -4,9 +4,9 @@ import { CardBorder, CardBox } from './styled';
 import { GridCardActions } from '../GridCardActions';
 
 export interface GridCardProps {
-  id: string;
+  id: number | string;
   imgUrl: string;
-  isFavorite: boolean;
+  isFavorite?: boolean;
   breed?: string;
   cardType: 'main' | 'upload';
 }
@@ -14,7 +14,7 @@ export interface GridCardProps {
 export const GridCard = ({
   id,
   imgUrl,
-  isFavorite,
+  isFavorite = false,
   breed = 'learn more',
   cardType = 'main'
 }: GridCardProps) => (

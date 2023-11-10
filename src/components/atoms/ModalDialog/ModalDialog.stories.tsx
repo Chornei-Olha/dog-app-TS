@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import ModalDialog from './index';
 
 export default {
-  title: 'ModalDialog',
+  title: 'Atoms/ModalDialog',
   component: ModalDialog
 };
 
