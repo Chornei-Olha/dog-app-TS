@@ -9,6 +9,11 @@ import { styled } from '@mui/material/styles';
 interface ModalDialogProps {
   open: boolean;
   onClose: () => void;
+  confirm: () => void;
+  title: string;
+  description: string;
+  textBtnClose: string;
+  textBtnConfirm: string;
 }
 
 const StyledDialog = styled(Dialog)({
@@ -21,8 +26,15 @@ const StyledDialogTitle = styled(DialogTitle)({
   fontSize: '40px'
 });
 
-// eslint-disable-next-line react/prop-types
-const ModalDialog: React.FC<ModalDialogProps> = ({ open, onClose }) => (
+const ModalDialog = ({
+  open,
+  onClose,
+  confirm,
+  title = 'Upload a Dog image',
+  description = 'Information for this dialog',
+  textBtnClose = 'close',
+  textBtnConfirm = 'confirm'
+}: ModalDialogProps) => (
   <StyledDialog
     open={open}
     onClose={onClose}
@@ -34,13 +46,16 @@ const ModalDialog: React.FC<ModalDialogProps> = ({ open, onClose }) => (
       }
     }}
   >
-    <StyledDialogTitle>Upload a Dog image</StyledDialogTitle>
+    <StyledDialogTitle>{title}</StyledDialogTitle>
     <DialogContent>
-      <DialogContentText>Information for this dialog</DialogContentText>
+      <DialogContentText>{description}</DialogContentText>
     </DialogContent>
     <DialogActions>
-      <Button onClick={onClose} color="primary">
-        Close
+      <Button onClick={onClose} color="primary" variant="outlined">
+        {textBtnClose}
+      </Button>
+      <Button onClick={confirm} color="primary" variant="contained">
+        {textBtnConfirm}
       </Button>
     </DialogActions>
   </StyledDialog>
