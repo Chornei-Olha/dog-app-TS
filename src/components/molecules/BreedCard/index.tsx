@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import BorderedBox from '../../atoms/BorderedBox';
 import { Link } from '@mui/material';
+
+import BorderedBox from '../../atoms/BorderedBox';
+import { BreedCardStyled, BreedCardText } from './styled';
 
 interface BreedCardProps {
   image: string;
@@ -9,6 +11,8 @@ interface BreedCardProps {
   moreInfo: string;
 }
 
+const MAX_CHARACTERS = 63;
+
 const BreedCard: React.FC<BreedCardProps> = ({
   image,
   name,
@@ -16,33 +20,64 @@ const BreedCard: React.FC<BreedCardProps> = ({
   moreInfo
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const trimmedTemperament =
+    temperament.length > MAX_CHARACTERS
+      ? `${temperament.slice(0, MAX_CHARACTERS)}...`
+      : temperament;
 
   return (
     <BorderedBox
+      borderRadius={20}
       sx={{
-        width: '100%',
-        margin: '0'
+        width: '20vw',
+        height: '40vh',
+        margin: '0px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        position: 'relative',
+        overflow: 'hidden'
       }}
+      showHovered={isHovered}
     >
-      <div
-        className="breed-card"
+      <BreedCardStyled
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={image} alt={name} />
-        <h2>{name}</h2>
-        <p>{temperament}</p>
-
+        <img
+          src={image}
+          alt={name}
+          style={{
+            width: '100%',
+            height: '68%',
+            objectFit: 'cover',
+            borderRadius: '20px'
+          }}
+        />
+        <BreedCardText>
+          <h2
+            style={{
+              marginBottom: '5px',
+              fontSize: '26px'
+            }}
+          >
+            {name}
+          </h2>
+          <p style={{ marginBottom: '5px', fontSize: '20px' }}>
+            Temperamente: {trimmedTemperament}
+          </p>
+        </BreedCardText>
         {isHovered && (
-          <div className="more-info">{/* <p>{moreInfo}</p> */}</div>
+          <div
+            className="more-info"
+            style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
+          >
+            <Link href="/" variant="inherit" underline="hover">
+              more
+            </Link>
+          </div>
         )}
-
-        {moreInfo && (
-          <Link href="/" variant="inherit" underline="hover">
-            more...
-          </Link>
-        )}
-      </div>
+      </BreedCardStyled>
     </BorderedBox>
   );
 };

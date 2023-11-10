@@ -22,9 +22,10 @@ const BreedList: React.FC<BreedListProps> = () => {
   const gridStyles = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gridTemplateRows: 'repeat(2, 1fr)',
+    gridTemplateRows: '1fr',
     gridGap: '22px',
-    margin: '0 140px'
+    margin: '17% 5%',
+    overflowX: 'hidden'
   };
 
   const { data: breeds, isLoading: isLoadingBreeds } = useGetBreedsQuery();
