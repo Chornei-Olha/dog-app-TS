@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 interface BorderedBoxProps extends BoxProps {
   borderRadius?: number;
   height?: number | string;
-  showHovered: boolean;
+  showHovered?: boolean;
 }
 
 const BorderedBox = styled(Box)<BorderedBoxProps>(
