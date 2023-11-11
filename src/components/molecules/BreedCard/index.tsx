@@ -11,7 +11,7 @@ interface BreedCardProps {
   moreInfo: string;
 }
 
-const MAX_CHARACTERS = 63;
+const MAX_CHARACTERS = 45;
 
 const BreedCard: React.FC<BreedCardProps> = ({
   image,
@@ -22,7 +22,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const trimmedTemperament =
     temperament.length > MAX_CHARACTERS
-      ? `${temperament.slice(0, MAX_CHARACTERS)}...`
+      ? `${temperament.slice(0, MAX_CHARACTERS)} ...`
       : temperament;
 
   return (
