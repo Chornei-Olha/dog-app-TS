@@ -68,9 +68,7 @@ const BreedList: React.FC<BreedListProps> = () => {
             page={page}
             onChange={handlePageChange}
             sx={{
-              margin: '20px auto',
-              display: 'flex',
-              justifyContent: 'center'
+              margin: '20px auto 20px auto'
             }}
           />
         )}
