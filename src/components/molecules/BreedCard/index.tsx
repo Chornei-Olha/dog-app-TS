@@ -29,7 +29,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
     <BorderedBox
       borderRadius={20}
       sx={{
-        width: '20vw',
+        width: '17vw',
         height: '40vh',
         margin: '0px',
         display: 'flex',
