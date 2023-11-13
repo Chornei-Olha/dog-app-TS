@@ -60,13 +60,7 @@ export const Grid = ({ listImages }: GridProps) => (
   <List>
     {(listImages || []).map(item => (
       <Item key={item.id}>
-        <GridCard
-          imgUrl={item.url}
-          id={item.id}
-          isFavorite={item.isFavorite}
-          breed={item.breeds[0]?.breed_group || 'learn more'}
-          cardType="main"
-        />
+        <GridCard imgUrl={item.url} id={item.id} isFavorite={item.isFavorite} />
       </Item>
     ))}
   </List>

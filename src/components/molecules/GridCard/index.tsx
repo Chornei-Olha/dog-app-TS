@@ -7,16 +7,14 @@ export interface GridCardProps {
   id: number | string;
   imgUrl: string;
   isFavorite?: boolean;
-  breed?: string;
-  cardType: 'main' | 'upload';
+  cardType?: 'favorite' | 'upload';
 }
 
 export const GridCard = ({
   id,
   imgUrl,
   isFavorite = false,
-  breed = 'learn more',
-  cardType = 'main'
+  cardType
 }: GridCardProps) => (
   <CardBorder showHovered boxShadow={alpha(theme.palette.primary.main, 1)}>
     <CardBox>
@@ -26,12 +24,7 @@ export const GridCard = ({
         alt="item"
         sx={{ height: '100%', objectFit: 'cover' }}
       />
-      <GridCardActions
-        id={id}
-        isFavorite={isFavorite}
-        breed={breed}
-        cardType={cardType}
-      />
+      <GridCardActions id={id} isFavorite={isFavorite} cardType={cardType} />
     </CardBox>
   </CardBorder>
 );
