@@ -6,16 +6,16 @@ export interface Favorite {
 }
 
 export type FavoritesResponse = {
-  created_at: string;
   id: number;
+  user_id: string;
+  image_id: string;
+  sub_id: string;
+  created_at: string;
   image: {
     id: string;
     url: string;
   };
-  image_id: string;
-  sub_id: string | null;
-  user_id: string;
-}[];
+};
 
 export const favoritesApi = api.injectEndpoints({
   endpoints: build => ({
@@ -36,12 +36,9 @@ export const favoritesApi = api.injectEndpoints({
       invalidatesTags: [{ type: 'Favorites', id: 'LIST' }]
     }),
 
-    getFavorites: build.query<
-      FavoritesResponse,
-      { limit?: number; page?: number }
-    >({
-      query: ({ limit = 10, page = 0 }) => ({
-        url: `favourites?limit=${limit}&page=${page}`
+    getFavorites: build.query<FavoritesResponse[], void>({
+      query: () => ({
+        url: `favourites`
       }),
       providesTags: (result = []) => [
         ...result.map(({ id }) => ({ type: 'Favorites', id }) as const),

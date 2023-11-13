@@ -6,7 +6,8 @@ import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
 import ModalDialog from '../../atoms/ModalDialog';
 import {
   useAddFavoriteMutation,
-  useDeleteFavoriteMutation
+  useDeleteFavoriteMutation,
+  useGetFavoritesQuery
 } from '../../../services/favorite';
 import ArrowIcon from '../../../assets/icons/ArrowIcon.svg?react';
 import PawIcon from '../../../assets/icons/PawIcon.svg?react';
@@ -31,8 +32,17 @@ export const GridCardActions = ({
   const [addFavorite] = useAddFavoriteMutation();
   const [deleteFavorite] = useDeleteFavoriteMutation();
 
+  const { data: favorites } = useGetFavoritesQuery();
+  // eslint-disable-next-line consistent-return
+  const checkId = (idItem: string) => {
+    const isDublicateItem = favorites?.some(fav => fav.image_id === id);
+    if (!isDublicateItem) return idItem;
+    const favItem = favorites?.find(fav => fav.image_id === id);
+    deleteFavorite({ favourite_id: favItem?.id });
+  };
+
   const addToFavorite = () => {
-    addFavorite({ image_id: id });
+    addFavorite({ image_id: checkId(id) });
   };
 
   const deleteFromFavorite = () => {
