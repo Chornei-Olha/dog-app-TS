@@ -5,15 +5,17 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
 
 interface ModalDialogProps {
   open: boolean;
-  onClose: () => void;
-  confirm: () => void;
-  title: string;
-  description: string;
-  textBtnClose: string;
-  textBtnConfirm: string;
+  onClose?: () => void;
+  confirm?: () => void;
+  title?: string;
+  description?: string;
+  textBtnClose?: string;
+  textBtnConfirm?: string;
+  children?: React.ReactNode;
 }
 
 const StyledDialog = styled(Dialog)({
@@ -33,7 +35,8 @@ const ModalDialog = ({
   title = 'Upload a Dog image',
   description = 'Information for this dialog',
   textBtnClose = 'close',
-  textBtnConfirm = 'confirm'
+  textBtnConfirm = 'confirm',
+  children
 }: ModalDialogProps) => (
   <StyledDialog
     open={open}
@@ -46,18 +49,24 @@ const ModalDialog = ({
       }
     }}
   >
-    <StyledDialogTitle>{title}</StyledDialogTitle>
-    <DialogContent>
-      <DialogContentText>{description}</DialogContentText>
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={onClose} color="primary" variant="outlined">
-        {textBtnClose}
-      </Button>
-      <Button onClick={confirm} color="primary" variant="contained">
-        {textBtnConfirm}
-      </Button>
-    </DialogActions>
+    {children ? (
+      <Box sx={{ padding: 1 }}>{children}</Box>
+    ) : (
+      <Box sx={{ padding: 1 }}>
+        <StyledDialogTitle>{title}</StyledDialogTitle>
+        <DialogContent>
+          <DialogContentText>{description}</DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onClose} color="primary" variant="outlined">
+            {textBtnClose}
+          </Button>
+          <Button onClick={confirm} color="primary" variant="contained">
+            {textBtnConfirm}
+          </Button>
+        </DialogActions>
+      </Box>
+    )}
   </StyledDialog>
 );
 
