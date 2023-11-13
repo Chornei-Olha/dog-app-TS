@@ -5,7 +5,7 @@ export const breedsApi = api.injectEndpoints({
     getBreeds: build.query<Breed[], void>({
       query: () => 'breeds'
     }),
-    getBreedById: build.query<Breed, string>({
+    getBreedById: build.query<BreedDetails, string>({
       query: breedId => `breeds/${breedId}`
     })
   })
@@ -17,5 +17,15 @@ export interface Breed {
   id: string;
   name: string;
   temperament: string;
+}
+
+export interface BreedDetails extends Breed {
+  weight: {
+    metric: string;
+  };
+  height: {
+    metric: string;
+  };
+  life_span: string;
   origin: string;
 }

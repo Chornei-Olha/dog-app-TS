@@ -9,7 +9,6 @@ interface Breed {
   name: string;
   image: string;
   temperament: string;
-  moreInfo: string;
 }
 
 interface BreedListProps {
@@ -55,11 +54,10 @@ const BreedList: React.FC<BreedListProps> = () => {
       <div className="breed-list" style={gridStyles}>
         {breedSlice.map((breed, index) => (
           <BreedCard
-            key={breed.id}
+            id={breed.id}
             name={breed.name}
             image={images?.[index]?.url || ''}
             temperament={breed.temperament}
-            moreInfo={breed.moreInfo}
           />
         ))}
         {breeds && breeds.length && breeds.length > perPage && (
