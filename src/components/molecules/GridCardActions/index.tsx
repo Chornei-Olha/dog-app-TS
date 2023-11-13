@@ -1,30 +1,24 @@
 import { Box, Button, IconButton } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
 import ModalDialog from '../../atoms/ModalDialog';
 import {
   useAddFavoriteMutation,
-  useDeleteFavoriteMutation,
-  useGetFavoritesQuery
+  useDeleteFavoriteMutation
 } from '../../../services/favorite';
-import ArrowIcon from '../../../assets/icons/ArrowIcon.svg?react';
-import PawIcon from '../../../assets/icons/PawIcon.svg?react';
 import { WrapActions, CardActionsTop, CardActionsBottom } from './styled';
 
 export interface GridCardActionsProps {
   id: string | number;
   isFavorite?: boolean;
-  breed?: string;
-  cardType: 'main' | 'upload';
+  cardType?: 'favorite' | 'upload';
 }
 
 export const GridCardActions = ({
   id,
   isFavorite = false,
-  breed = 'learn more',
-  cardType = 'main'
+  cardType
 }: GridCardActionsProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
@@ -32,23 +26,16 @@ export const GridCardActions = ({
   const [addFavorite] = useAddFavoriteMutation();
   const [deleteFavorite] = useDeleteFavoriteMutation();
 
-  const { data: favorites } = useGetFavoritesQuery();
-  // eslint-disable-next-line consistent-return
-  const checkId = (idItem: string) => {
-    const isDublicateItem = favorites?.some(fav => fav.image_id === id);
-    if (!isDublicateItem) return idItem;
-    const favItem = favorites?.find(fav => fav.image_id === id);
-    deleteFavorite({ favourite_id: favItem?.id });
-  };
-
   const addToFavorite = () => {
-    addFavorite({ image_id: checkId(id) });
+    addFavorite({ image_id: id });
   };
 
   const deleteFromFavorite = () => {
     deleteFavorite({ favourite_id: id });
     setIsOpenDeleteModal(false);
   };
+  // eslint-disable-next-line no-nested-ternary
+  const iconState = isFavorite ? 'active' : isHovered ? 'hover' : 'default';
 
   return (
     <>
@@ -66,32 +53,19 @@ export const GridCardActions = ({
         onMouseLeave={() => setIsHovered(false)}
       >
         <CardActionsTop>
-          <IconButton onClick={addToFavorite} aria-label="add to favorites">
-            <AddFavoriteIcon state={isFavorite ? 'active' : 'default'} />
-          </IconButton>
+          {isFavorite ? (
+            <Box aria-label="add to favorites">
+              <AddFavoriteIcon state={iconState} />
+            </Box>
+          ) : (
+            <IconButton onClick={addToFavorite} aria-label="add to favorites">
+              <AddFavoriteIcon state={iconState} />
+            </IconButton>
+          )}
         </CardActionsTop>
         {isHovered && (
           <CardActionsBottom>
-            {cardType === 'main' && (
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center'
-                }}
-              >
-                <NavLink to="/breeds">
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    startIcon={<PawIcon />}
-                    endIcon={<ArrowIcon />}
-                  >
-                    {breed}
-                  </Button>
-                </NavLink>
-              </Box>
-            )}
-            {cardType === 'upload' && (
+            {cardType === 'favorite' && (
               <Box
                 sx={{
                   display: 'flex',

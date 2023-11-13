@@ -15,7 +15,7 @@ export const FavoriteList = ({ favoritesData }: FavoriteListProps) => (
           id={item.id}
           imgUrl={item.image.url}
           isFavorite
-          cardType="upload"
+          cardType="favorite"
         />
       </ListItem>
     ))}
