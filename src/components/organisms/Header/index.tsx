@@ -7,14 +7,33 @@ import { Menu } from '../../atoms/Menu';
 import { UploadPageIcon } from '../../atoms/UploadPageIcon';
 import { FavoritePageIcon } from '../../atoms/FavoritePageIcon';
 import { menuHeader } from '../../../utils/const';
-import { Wrap, Logo, LogoDog, LogoStarGallery, Container } from './styled';
-import { ModalUpload } from '../UploadPageContent';
+import { UploadNewImage } from '../../atoms/UploadNewImage';
+import {
+  Wrap,
+  Logo,
+  LogoDog,
+  LogoStarGallery,
+  Container,
+  ModalDialogStyled
+} from './styled';
 
 const Header = () => {
-  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const [isOpenModalUpload, setIsOpenModalUpload] = useState(false);
+
+  const openModalUpload = () => {
+    setIsOpenModalUpload(true);
+  };
+
+  const closeModalUpload = () => {
+    setIsOpenModalUpload(false);
+  };
+
   return (
     <>
-      <ModalUpload isOpen={isOpenDeleteModal} />;
+      <ModalDialogStyled open={isOpenModalUpload} onClose={closeModalUpload}>
+        <UploadNewImage />
+      </ModalDialogStyled>
+
       <Wrap position="static" sx={{ backgroundColor: 'ADA7B8' }}>
         <Container>
           <Logo to="/">
@@ -31,9 +50,9 @@ const Header = () => {
                 <FavoritePageIcon state={isActive ? 'active' : 'default'} />
               )}
             </NavLink>
-            <IconButton onClick={() => setIsOpenDeleteModal(true)}>
+            <IconButton onClick={() => openModalUpload()}>
               <UploadPageIcon
-                state={isOpenDeleteModal ? 'active' : 'default'}
+                state={isOpenModalUpload ? 'active' : 'default'}
               />
             </IconButton>
           </Stack>

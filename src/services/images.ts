@@ -19,6 +19,16 @@ export interface Images {
   categories: [];
 }
 
+export type ImagesUploadResponse = {
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+  original_filename: string;
+  pending: number;
+  approved: number;
+};
+
 type ImagesResponse = Images[];
 
 export const imagesApi = api.injectEndpoints({
@@ -44,8 +54,22 @@ export const imagesApi = api.injectEndpoints({
         ...result.map(({ id }) => ({ type: 'Images', id }) as const),
         { type: 'Images' as const, id: 'LIST' }
       ]
+    }),
+    uploadImage: build.mutation<Images, FormData>({
+      query(body) {
+        console.log('body', body);
+        return {
+          url: `images/upload`,
+          method: 'POST',
+          body,
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        };
+      },
+      invalidatesTags: [{ type: 'Images', id: 'LIST' }]
     })
   })
 });
 
-export const { useGetImagesQuery } = imagesApi;
+export const { useGetImagesQuery, useUploadImageMutation } = imagesApi;

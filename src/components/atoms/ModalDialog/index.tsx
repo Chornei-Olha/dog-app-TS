@@ -1,11 +1,13 @@
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import {
+  Box,
+  Button,
+  DialogActions,
+  DialogContentText,
+  DialogContent
+} from '@mui/material';
+
+import CloseIcon from '../../../assets/icons/CloseIcon.svg?react';
+import { CloseBtn, StyledDialog, StyledDialogTitle } from './styled';
 
 interface ModalDialogProps {
   open: boolean;
@@ -17,16 +19,6 @@ interface ModalDialogProps {
   textBtnConfirm?: string;
   children?: React.ReactNode;
 }
-
-const StyledDialog = styled(Dialog)({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center'
-});
-
-const StyledDialogTitle = styled(DialogTitle)({
-  fontSize: '40px'
-});
 
 const ModalDialog = ({
   open,
@@ -45,19 +37,23 @@ const ModalDialog = ({
       style: {
         borderRadius: 20,
         background: 'white',
-        boxShadow: '6px 6px 0px 0px #000000'
+        boxShadow: '6px 6px 0px 0px #000000',
+        maxWidth: '100%'
       }
     }}
   >
+    <CloseBtn onClick={onClose}>
+      <CloseIcon />
+    </CloseBtn>
     {children ? (
-      <Box sx={{ padding: 1 }}>{children}</Box>
+      <Box>{children}</Box>
     ) : (
       <Box sx={{ padding: 1 }}>
         <StyledDialogTitle>{title}</StyledDialogTitle>
         <DialogContent>
           <DialogContentText>{description}</DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions sx={{ justifyContent: 'center' }}>
           <Button onClick={onClose} color="primary" variant="outlined">
             {textBtnClose}
           </Button>
@@ -69,5 +65,4 @@ const ModalDialog = ({
     )}
   </StyledDialog>
 );
-
 export default ModalDialog;
