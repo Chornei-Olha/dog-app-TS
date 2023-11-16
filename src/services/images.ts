@@ -19,6 +19,18 @@ export interface Images {
   categories: [];
 }
 
+export interface UploadImage {
+  breeds: [];
+  id: string;
+  url: string;
+  width: number;
+  height: number;
+  sub_id: string;
+  created_at: string;
+  original_filename: string;
+  breed_ids: string;
+}
+
 export type ImagesUploadResponse = {
   id: string;
   url: string;
@@ -68,8 +80,27 @@ export const imagesApi = api.injectEndpoints({
         };
       },
       invalidatesTags: [{ type: 'Images', id: 'LIST' }]
+    }),
+    uploadImagesList: build.query<
+      UploadImage[],
+      {
+        limit?: number;
+        page?: number;
+      }
+    >({
+      query: ({ limit = 10, page = 0 }) => ({
+        url: `images/?limit=${limit}&page=${page}`
+      }),
+      providesTags: (result = []) => [
+        ...result.map(({ id }) => ({ type: 'Images', id }) as const),
+        { type: 'Images' as const, id: 'LIST' }
+      ]
     })
   })
 });
 
-export const { useGetImagesQuery, useUploadImageMutation } = imagesApi;
+export const {
+  useGetImagesQuery,
+  useUploadImageMutation,
+  useUploadImagesListQuery
+} = imagesApi;
