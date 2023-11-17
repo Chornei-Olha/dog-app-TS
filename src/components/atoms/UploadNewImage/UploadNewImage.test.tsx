@@ -2,14 +2,14 @@ import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import * as stories from './Grid.stories';
+import * as stories from './UploadNewImage.stories';
 
-describe('MainGrid', () => {
-  const { List } = composeStories(stories);
-  it('should match snapshot MainGrid', () => {
+describe('UploadImage', () => {
+  const { UploadImage } = composeStories(stories);
+  it('should match snapshot UploadImage', () => {
     const { container } = render(
       <BrowserRouter>
-        <List />
+        <UploadImage />
       </BrowserRouter>
     );
     expect(container).toMatchSnapshot();

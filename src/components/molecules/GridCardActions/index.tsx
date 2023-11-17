@@ -81,6 +81,22 @@ export const GridCardActions = ({
                 </Button>
               </Box>
             )}
+            {cardType === 'upload' && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'flex-start'
+                }}
+              >
+                <Button
+                  onClick={() => {
+                    console.log('delete item', id);
+                  }}
+                >
+                  delete
+                </Button>
+              </Box>
+            )}
           </CardActionsBottom>
         )}
       </WrapActions>

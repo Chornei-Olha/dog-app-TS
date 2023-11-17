@@ -8,7 +8,7 @@ import { store } from './services/store';
 import App from './App';
 import './index.css';
 import { DogAppThemeProvider } from './theme';
-import { Main, Breeds, Favorite, Details } from './pages';
+import { Main, Breeds, Favorite, Upload, Details } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'your-uploads',
-        element: <h2>Your uploads</h2>
+        element: <Upload />
       },
       {
         path: '*',

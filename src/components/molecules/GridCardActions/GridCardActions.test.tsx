@@ -4,17 +4,15 @@ import { GridCardActions, GridCardActionsProps } from '.';
 const sampleProps: GridCardActionsProps = {
   id: 'id_test',
   isFavorite: false,
-  breed: 'Goldendoodle',
-  cardType: 'main'
+  cardType: 'favorite'
 };
 
 describe('GridCardActions', () => {
-  test('should match snapshot GridCard', () => {
+  test('should match snapshot GridCardActions', () => {
     const { container } = render(
       <GridCardActions
         id={sampleProps.id}
         isFavorite={sampleProps.isFavorite}
-        breed={sampleProps.breed}
         cardType={sampleProps.cardType}
       />
     );
@@ -26,7 +24,6 @@ describe('GridCardActions', () => {
       <GridCardActions
         id={sampleProps.id}
         isFavorite={sampleProps.isFavorite}
-        breed={sampleProps.breed}
         cardType={sampleProps.cardType}
       />
     );

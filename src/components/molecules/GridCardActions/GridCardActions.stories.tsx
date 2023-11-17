@@ -18,12 +18,7 @@ export const Main = () => (
       backgroundColor: 'gray'
     }}
   >
-    <GridCardActions
-      id="1"
-      isFavorite={false}
-      breed="Learn more"
-      cardType="main"
-    />
+    <GridCardActions id="1" isFavorite={false} cardType="favorite" />
   </Box>
 );
 
