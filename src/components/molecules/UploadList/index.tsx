@@ -9,14 +9,8 @@ interface UploadListProps {
 export const UploadList = ({ data }: UploadListProps) => (
   <List>
     {(data || []).map(item => (
-      <ListItem>
-        <GridCard
-          key={item.id}
-          id={item.id}
-          imgUrl={item.url}
-          isFavorite
-          cardType="upload"
-        />
+      <ListItem key={item.id}>
+        <GridCard id={item.id} imgUrl={item.url} isFavorite cardType="upload" />
       </ListItem>
     ))}
   </List>
