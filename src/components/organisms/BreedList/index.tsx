@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
 import { useGetImagesQuery } from '../../../services/images';
 import { useGetBreedsQuery } from '../../../services/breeds';
 
 interface Breed {
+  key: string;
   id: number;
   name: string;
-  image: string;
   temperament: string;
 }
 
@@ -32,11 +32,14 @@ const BreedList: React.FC<BreedListProps> = () => {
 
   const { data: breeds, isLoading: isLoadingBreeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
-  const { data: images, isLoading: isLoadingImages } = useGetImagesQuery({
-    limit: perPage * page
-  });
 
-  const breedSlice = breeds?.slice(0, page * perPage) || [];
+  const breedSlice = breeds?.slice((page - 1) * perPage, page * perPage) || [];
+
+  const imagesQuery = useGetImagesQuery({
+    limit: perPage * page,
+    order: 'random'
+  });
+  const { data: images, isLoading: isLoadingImages } = imagesQuery;
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -44,6 +47,10 @@ const BreedList: React.FC<BreedListProps> = () => {
   ) => {
     setPage(value);
   };
+
+  useEffect(() => {
+    imagesQuery.refetch();
+  }, [page, imagesQuery]);
 
   return (
     <div
@@ -54,6 +61,7 @@ const BreedList: React.FC<BreedListProps> = () => {
       <div className="breed-list" style={gridStyles}>
         {breedSlice.map((breed, index) => (
           <BreedCard
+            key={breed.id}
             id={breed.id}
             name={breed.name}
             image={images?.[index]?.url || ''}

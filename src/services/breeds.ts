@@ -26,6 +26,6 @@ export interface BreedDetails extends Breed {
   height: {
     metric: string;
   };
-  life_span: string;
+  lifeSpan: string;
   origin: string;
 }
