@@ -15,8 +15,7 @@ export const Main = () => (
       imgUrl="http://via.placeholder.com/640x360"
       id="1"
       isFavorite={false}
-      breed="Learn more"
-      cardType="main"
+      cardType="favorite"
     />
   </Box>
 );

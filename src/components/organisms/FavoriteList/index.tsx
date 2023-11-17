@@ -9,9 +9,8 @@ interface FavoriteListProps {
 export const FavoriteList = ({ favoritesData }: FavoriteListProps) => (
   <List>
     {(favoritesData || []).map(item => (
-      <ListItem>
+      <ListItem key={item.id}>
         <GridCard
-          key={item.id}
           id={item.id}
           imgUrl={item.image.url}
           isFavorite

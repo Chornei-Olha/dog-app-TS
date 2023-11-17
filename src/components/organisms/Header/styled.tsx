@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { AppBar, AppBarProps, Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ModalDialog from '../../atoms/ModalDialog';
 
 const Wrap = styled(AppBar)<AppBarProps>(({ theme }) => ({
   position: 'fixed',
@@ -47,4 +48,10 @@ const LogoStarGallery = styled(Typography)(() => ({
   lineHeight: 0.8
 }));
 
-export { Wrap, Container, Logo, LogoDog, LogoStarGallery };
+const ModalDialogStyled = styled(ModalDialog)(() => ({
+  maxWidth: '600px',
+  width: '100%',
+  padding: '40px'
+}));
+
+export { Wrap, Container, Logo, LogoDog, LogoStarGallery, ModalDialogStyled };
