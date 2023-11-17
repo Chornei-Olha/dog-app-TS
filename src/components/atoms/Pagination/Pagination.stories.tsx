@@ -1,5 +1,5 @@
 import { Pagination } from '@mui/material';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import React, { useState } from 'react';
 
 const meta = {
@@ -10,9 +10,7 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = () => {
+export const Primary = () => {
   const [page, setPage] = useState<number>(1);
 
   const handleChangePage = (

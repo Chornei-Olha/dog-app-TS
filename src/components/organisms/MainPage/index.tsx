@@ -18,6 +18,7 @@ import {
 } from './styled';
 import { Grid } from '../../molecules/Grid';
 import { useGetImagesWithFavorites } from '../../../utils/hooks';
+import { Loader } from '../../atoms/Loader';
 
 const listFormats = [
   { title: 'All', value: 'All' },
@@ -108,7 +109,7 @@ export const MainPage = () => {
             </Button>
           </Box>
         </FiltersWrap>
-        {isLoading && <div>Loading...</div>}
+        {isLoading && <Loader />}
         {favoritedImages && <Grid listImages={favoritedImages} />}
 
         <Pagination

@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import * as stories from './Grid.stories';
 
-describe('Grid', () => {
-  const { MainGrid } = composeStories(stories);
+describe('MainGrid', () => {
+  const { List } = composeStories(stories);
   it('should match snapshot MainGrid', () => {
     const { container } = render(
       <BrowserRouter>
-        <MainGrid />
+        <List />
       </BrowserRouter>
     );
     expect(container).toMatchSnapshot();

@@ -5,8 +5,7 @@ const sampleProps: GridCardProps = {
   id: 'id_test',
   imgUrl: 'http://via.placeholder.com/640x360',
   isFavorite: false,
-  breed: 'Goldendoodle',
-  cardType: 'main'
+  cardType: 'favorite'
 };
 
 describe('GridCard', () => {
@@ -16,7 +15,6 @@ describe('GridCard', () => {
         id={sampleProps.id}
         imgUrl={sampleProps.imgUrl}
         isFavorite={sampleProps.isFavorite}
-        breed={sampleProps.breed}
         cardType={sampleProps.cardType}
       />
     );
@@ -29,7 +27,6 @@ describe('GridCard', () => {
         id={sampleProps.id}
         imgUrl={sampleProps.imgUrl}
         isFavorite={sampleProps.isFavorite}
-        breed={sampleProps.breed}
         cardType={sampleProps.cardType}
       />
     );

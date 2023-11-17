@@ -14,13 +14,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Page: Story = {
+export const List: Story = {
   args: {
     data: [
       {
         breeds: [],
         id: '-Vo1XRVJ-',
-        url: 'https://cdn2.thedogapi.com/images/-Vo1XRVJ-.png',
+        url: 'http://via.placeholder.com/640x360',
         width: 1399,
         height: 1050,
         sub_id: '',
@@ -31,7 +31,7 @@ export const Page: Story = {
       {
         breeds: [],
         id: 'svssmNnjz',
-        url: 'https://cdn2.thedogapi.com/images/svssmNnjz.png',
+        url: 'http://via.placeholder.com/640x360',
         width: 1399,
         height: 1050,
         sub_id: '',
