@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { MuiButtonConfig } from './button.config';
-import { MuiIconButtonConfig } from './iconButton.config';
+import { MuiIconButtonConfig } from './LikeIconButton.config';
 import { MuiLinkConfig } from './link.config';
 import { MuiPaginationConfig } from './pagination.config';
 import Dosis from '../fonts/Dosis.ttf';
@@ -129,6 +129,7 @@ const theme = createTheme({
         }
       `
     },
+
     MuiTab: {
       defaultProps: {
         disableRipple: true
