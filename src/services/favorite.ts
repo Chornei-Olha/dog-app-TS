@@ -1,7 +1,7 @@
 import { api } from './api';
 
 export interface Favorite {
-  image_id: string;
+  image_id: string | number;
   sub_id?: string;
 }
 

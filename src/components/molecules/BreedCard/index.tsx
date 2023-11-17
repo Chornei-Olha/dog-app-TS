@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, IconButton, CardActions } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 import BorderedBox from '../../atoms/BorderedBox';
 import { BreedCardStyled, BreedCardText } from './styled';
 import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
@@ -14,7 +15,6 @@ interface BreedCardProps {
   image: string;
   name: string;
   temperament: string;
-  moreInfo: string;
 }
 
 const MAX_CHARACTERS = 45;
@@ -24,22 +24,25 @@ const BreedCard: React.FC<BreedCardProps> = ({
   isFavorite,
   image,
   name,
-  temperament,
-  moreInfo
+  temperament
 }) => {
   const [addFavorite] = useAddFavoriteMutation();
   const [deleteFavorite] = useDeleteFavoriteMutation();
-  const [favorite, setFavorite] = useState(isFavorite);
+  const [favorite, setFavorite] = useState(isFavorite || false);
+
   const addToFavorite = () => {
     addFavorite({ image_id: id });
     setFavorite(true);
   };
-  // const deleteFromFavorite = () => {
-  //   deleteFavorite({ favourite_id: id });
-  // };
+
+  const deleteFromFavorite = () => {
+    deleteFavorite({ favorite_id: id });
+    setFavorite(false);
+  };
+
   const [isHovered, setIsHovered] = useState(false);
   const trimmedTemperament =
-    temperament.length > MAX_CHARACTERS
+    temperament && temperament.length > MAX_CHARACTERS
       ? `${temperament.slice(0, MAX_CHARACTERS)} ...`
       : temperament;
 
@@ -59,7 +62,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
       showHovered={isHovered}
     >
       <IconButton
-        onClick={addToFavorite}
+        onClick={favorite ? deleteFromFavorite : addToFavorite}
         aria-label="add to favorites"
         style={{
           position: 'absolute',
@@ -103,9 +106,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
             className="more-info"
             style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
           >
-            <Link href="/" variant="inherit" underline="hover">
-              more
-            </Link>
+            <NavLink to={`/breeds/${id}`}>more</NavLink>
           </div>
         )}
       </BreedCardStyled>
