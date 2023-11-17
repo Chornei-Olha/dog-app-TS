@@ -1,14 +1,13 @@
-import { IconButton } from '@mui/material';
+import { ButtonBase } from '@mui/material';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { AddLikeIconButton } from '../../../icons/AddLikeIconButton';
-import LikeIconButton from '.';
 
 const meta = {
   title: 'Atoms/LikeIconButton',
-  component: IconButton,
+  component: ButtonBase,
   argTypes: {}
-} satisfies Meta<typeof IconButton>;
+} satisfies Meta<typeof ButtonBase>;
 
 export default meta;
 
@@ -16,7 +15,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: <LikeIconButton />
+    children: <AddLikeIconButton />
   }
 };
 
