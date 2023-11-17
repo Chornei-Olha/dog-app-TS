@@ -5,6 +5,7 @@ export const MuiIconButtonConfig: Components<Theme>['MuiIconButton'] = {
     root: () => ({
       padding: 1,
       backgroundColor: 'transparent',
+      boxShadow: 'none',
       '&:hover, &:active': {
         backgroundColor: 'transparent'
       }

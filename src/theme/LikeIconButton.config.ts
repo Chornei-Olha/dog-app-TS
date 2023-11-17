@@ -1,6 +1,6 @@
 import { Components, Theme, alpha } from '@mui/material';
 
-export const MuiIconButtonConfig: Components<Theme>['MuiIconButton'] = {
+export const MuiButtonBaseConfig: Components<Theme>['MuiButtonBase'] = {
   styleOverrides: {
     root: ({ theme: { palette } }) => ({
       borderRadius: 50,
