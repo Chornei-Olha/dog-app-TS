@@ -68,15 +68,11 @@ export const imagesApi = api.injectEndpoints({
       ]
     }),
     uploadImage: build.mutation<Images, FormData>({
-      query(body) {
-        console.log('body', body);
+      query(formData) {
         return {
           url: `images/upload`,
           method: 'POST',
-          body,
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
+          body: formData
         };
       },
       invalidatesTags: [{ type: 'Images', id: 'LIST' }]
