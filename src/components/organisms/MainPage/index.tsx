@@ -47,9 +47,9 @@ export const MainPage = () => {
 
   const handleChangeAutocomplete = (
     _event: React.ChangeEvent<unknown>,
-    value: string
+    value: string | null
   ) => {
-    setImageFormat(value);
+    setImageFormat(value!);
   };
 
   const handleSort = (value: string) => {

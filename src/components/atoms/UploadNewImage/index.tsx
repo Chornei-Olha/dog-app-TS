@@ -26,7 +26,7 @@ export const UploadNewImage = () => {
   const fileUploadHandler = async () => {
     try {
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', file!);
       await uploadImage(formData);
       console.log('File uploaded successfully:', file);
     } catch (err) {
