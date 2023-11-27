@@ -1,6 +1,6 @@
 import { IconButton } from '@mui/material';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
 import { useState } from 'react';
 import { AddFavoriteIcon } from '../AddFavoriteIcon';
 
@@ -12,9 +12,7 @@ const meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = () => {
+export const Primary = () => {
   const [isFavorite, setIsFavorite] = useState<boolean>(false);
 
   const handleAddFavorite = () => {

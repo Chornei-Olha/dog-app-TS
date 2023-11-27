@@ -3,14 +3,12 @@ import { styled } from '@mui/material/styles';
 
 interface BorderedBoxProps extends BoxProps {
   borderRadius?: number;
-  height?: number | string;
   showHovered?: boolean;
 }
 
 const BorderedBox = styled(Box)<BorderedBoxProps>(
-  ({ theme, borderRadius, height, showHovered }) => ({
+  ({ theme, borderRadius, showHovered }) => ({
     borderRadius: borderRadius || 20,
-    // height: height || 50,
     boxShadow: `6px 6px 0px 0px ${alpha(theme.palette.common.black, 1)}`,
     transition: 'box-shadow 0.3s ease-in-out',
     '&:hover': {
