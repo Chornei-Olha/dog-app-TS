@@ -27,11 +27,15 @@ export const GridCardActions = ({
   const [deleteFavorite] = useDeleteFavoriteMutation();
 
   const addToFavorite = () => {
-    addFavorite({ image_id: id });
+    if (typeof id === 'string') {
+      addFavorite({ image_id: id });
+    }
   };
 
   const deleteFromFavorite = () => {
-    deleteFavorite({ favourite_id: id });
+    if (typeof id === 'number') {
+      deleteFavorite({ favourite_id: id });
+    }
     setIsOpenDeleteModal(false);
   };
   // eslint-disable-next-line no-nested-ternary
