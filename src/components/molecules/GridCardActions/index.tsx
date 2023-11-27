@@ -73,6 +73,8 @@ export const GridCardActions = ({
                 }}
               >
                 <Button
+                  variant="text"
+                  color="primary"
                   onClick={() => {
                     setIsOpenDeleteModal(true);
                   }}
@@ -89,6 +91,8 @@ export const GridCardActions = ({
                 }}
               >
                 <Button
+                  variant="text"
+                  color="primary"
                   onClick={() => {
                     console.log('delete item', id);
                   }}
