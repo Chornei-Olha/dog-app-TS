@@ -1,16 +1,17 @@
 import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import * as stories from './MainPage.stories';
+import { store } from '../../../services/store';
 
 describe('MainPage', () => {
   const { Page } = composeStories(stories);
   it('should match snapshot MainPage', () => {
     const { container } = render(
-      <BrowserRouter>
+      <Provider store={store}>
         <Page />
-      </BrowserRouter>
+      </Provider>
     );
     expect(container).toMatchSnapshot();
   });

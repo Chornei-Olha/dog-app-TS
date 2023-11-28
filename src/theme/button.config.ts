@@ -97,6 +97,19 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       '&:active': {
         border: `1px solid ${palette.grey[300]}`
       }
+    }),
+
+    textPrimary: ({ theme: { palette, typography } }) => ({
+      color: palette.primary.main,
+      backgroundColor: 'transparent',
+      fontSize: 20,
+      fontWeight: typography.fontWeightBold,
+      '&:hover, &:active': {
+        backgroundColor: 'transparent',
+        color: palette.common.white,
+        boxShadow: 'none',
+        outline: 'none'
+      }
     })
   },
   defaultProps: {

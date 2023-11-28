@@ -9,7 +9,7 @@ const meta: Meta<GridCardActionsProps> = {
 };
 export default meta;
 
-export const Main = () => (
+export const Favorite = () => (
   <Box
     sx={{
       width: '250px',

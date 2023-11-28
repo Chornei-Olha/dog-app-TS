@@ -1,12 +1,18 @@
 import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
 
 import * as stories from './UploadNewImage.stories';
+import { store } from '../../../services/store';
 
-describe('UploadImage', () => {
+describe('UploadNewImage', () => {
   const { UploadImage } = composeStories(stories);
-  it('should match snapshot UploadImage', () => {
-    const { container } = render(<UploadImage />);
+  it('should match snapshot UploadNewImage', () => {
+    const { container } = render(
+      <Provider store={store}>
+        <UploadImage />
+      </Provider>
+    );
     expect(container).toMatchSnapshot();
   });
 });
