@@ -33,7 +33,7 @@ const BreedList: React.FC<BreedListProps> = () => {
 
   const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
-  const [images, setImages] = useState<string[]>([]);
+  // const [images, setImages] = useState<string[]>([]);
 
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
@@ -84,13 +84,13 @@ const BreedList: React.FC<BreedListProps> = () => {
       }}
     >
       <div className="breed-list" style={gridStyles}>
-        {breedSlice.map((breed, index) => (
+        {breedSlice.map(breed => (
           <BreedCard
             key={breed.id}
             id={breed.id}
             name={breed.name}
-            image={images[index] || ''}
             temperament={breed.temperament}
+            referenceImageId={breed.reference_image_id}
           />
         ))}
         {breeds && breeds.length && breeds.length > perPage && (

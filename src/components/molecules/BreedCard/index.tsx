@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import BorderedBox from '../../atoms/BorderedBox';
 import { BreedCardStyled, BreedCardText } from './styled';
+import { useGetBreedImagesQuery } from '../../../services/images';
 // import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
 // import {
 //   useAddFavoriteMutation,
@@ -10,11 +11,12 @@ import { BreedCardStyled, BreedCardText } from './styled';
 // } from '../../../services/favorite';
 
 interface BreedCardProps {
-  id: number | string;
+  id: number;
   // isFavorite?: boolean;
-  image: string;
+  // image: string;
   name: string;
   temperament: string;
+  referenceImageId: string;
 }
 
 const MAX_CHARACTERS = 45;
@@ -22,9 +24,10 @@ const MAX_CHARACTERS = 45;
 const BreedCard: React.FC<BreedCardProps> = ({
   id,
   // isFavorite,
-  image,
+  // image,
   name,
-  temperament
+  temperament,
+  referenceImageId
 }) => {
   // const [addFavorite] = useAddFavoriteMutation();
   // const [deleteFavorite] = useDeleteFavoriteMutation();
@@ -45,6 +48,8 @@ const BreedCard: React.FC<BreedCardProps> = ({
     temperament && temperament.length > MAX_CHARACTERS
       ? `${temperament.slice(0, MAX_CHARACTERS)} ...`
       : temperament;
+
+  const { data: breedImages } = useGetBreedImagesQuery(referenceImageId);
 
   return (
     <BorderedBox
@@ -79,7 +84,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
         onMouseLeave={() => setIsHovered(false)}
       >
         <img
-          src={image}
+          src={breedImages?.url || 'http://via.placeholder.com/640x360'}
           alt={name}
           style={{
             width: '100%',
