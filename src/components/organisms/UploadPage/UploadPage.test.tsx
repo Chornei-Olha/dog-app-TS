@@ -1,16 +1,17 @@
 import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import * as stories from './UploadPage.stories';
+import { store } from '../../../services/store';
 
 describe('UploadPage', () => {
   const { Page } = composeStories(stories);
   it('should match snapshot UploadPage', () => {
     const { container } = render(
-      <BrowserRouter>
+      <Provider store={store}>
         <Page />
-      </BrowserRouter>
+      </Provider>
     );
     expect(container).toMatchSnapshot();
   });

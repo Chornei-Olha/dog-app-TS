@@ -1,16 +1,17 @@
 import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import * as stories from './UploadNewImage.stories';
+import { store } from '../../../services/store';
 
-describe('UploadImage', () => {
+describe('UploadNewImage', () => {
   const { UploadImage } = composeStories(stories);
-  it('should match snapshot UploadImage', () => {
+  it('should match snapshot UploadNewImage', () => {
     const { container } = render(
-      <BrowserRouter>
+      <Provider store={store}>
         <UploadImage />
-      </BrowserRouter>
+      </Provider>
     );
     expect(container).toMatchSnapshot();
   });

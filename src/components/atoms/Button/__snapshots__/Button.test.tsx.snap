@@ -34,6 +34,14 @@ exports[`Button should match snapshot Component 1`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
+  border-radius: 50px;
+  background-color: #921FED;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  padding: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
   font-family: Dosis,FugazOne,Karantina,MedulaOne,Goldman,Mohave,MonomaniacOne,Raleway;
   font-weight: 500;
   font-size: 1.25rem;
@@ -79,6 +87,14 @@ exports[`Button should match snapshot Component 1`] = `
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
+}
+
+.emotion-0:hover {
+  background-color: #A239F4;
+}
+
+.emotion-0:active {
+  background-color: #B568F2;
 }
 
 .emotion-0:hover {
@@ -171,6 +187,14 @@ exports[`Button should match snapshot Component 2`] = `
   -webkit-text-decoration: none;
   text-decoration: none;
   color: inherit;
+  border-radius: 50px;
+  background-color: #921FED;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  padding: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 1);
   font-family: Dosis,FugazOne,Karantina,MedulaOne,Goldman,Mohave,MonomaniacOne,Raleway;
   font-weight: 500;
   font-size: 1.25rem;
@@ -213,6 +237,14 @@ exports[`Button should match snapshot Component 2`] = `
     -webkit-print-color-adjust: exact;
     color-adjust: exact;
   }
+}
+
+.emotion-0:hover {
+  background-color: #A239F4;
+}
+
+.emotion-0:active {
+  background-color: #B568F2;
 }
 
 .emotion-0:hover {

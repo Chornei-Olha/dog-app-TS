@@ -1,34 +1,17 @@
+import { composeStories } from '@storybook/react';
 import { render } from '@testing-library/react';
-import { GridCard, GridCardProps } from '.';
-
-const sampleProps: GridCardProps = {
-  id: 'id_test',
-  imgUrl: 'http://via.placeholder.com/640x360',
-  isFavorite: false,
-  cardType: 'favorite'
-};
+import { Provider } from 'react-redux';
+import * as stories from './GridCard.stories';
+import { store } from '../../../services/store';
 
 describe('GridCard', () => {
-  test('should match snapshot GridCard', () => {
+  const { Main } = composeStories(stories);
+  test('should match snapshot Main', () => {
     const { container } = render(
-      <GridCard
-        id={sampleProps.id}
-        imgUrl={sampleProps.imgUrl}
-        isFavorite={sampleProps.isFavorite}
-        cardType={sampleProps.cardType}
-      />
+      <Provider store={store}>
+        <Main />
+      </Provider>
     );
     expect(container).toMatchSnapshot();
-  });
-
-  test('renders MainCard with default state', () => {
-    render(
-      <GridCard
-        id={sampleProps.id}
-        imgUrl={sampleProps.imgUrl}
-        isFavorite={sampleProps.isFavorite}
-        cardType={sampleProps.cardType}
-      />
-    );
   });
 });

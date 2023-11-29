@@ -23,5 +23,6 @@
     "esModuleInterop": true
   },
   "include": ["src"],
+  "types": ["node", "jest", "@testing-library/jest-dom"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

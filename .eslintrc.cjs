@@ -17,7 +17,8 @@ module.exports = {
     'vite.config.ts',
     'storybook-static',
     '*.cjs',
-    'commitlintrc.json'
+    'commitlintrc.json',
+    'jest.setup.js'
   ],
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
