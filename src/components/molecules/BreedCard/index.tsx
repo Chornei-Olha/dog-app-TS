@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { IconButton } from '@mui/material';
+// import { IconButton } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import BorderedBox from '../../atoms/BorderedBox';
 import { BreedCardStyled, BreedCardText } from './styled';
-import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
-import {
-  useAddFavoriteMutation,
-  useDeleteFavoriteMutation
-} from '../../../services/favorite';
+// import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
+// import {
+//   useAddFavoriteMutation,
+//   useDeleteFavoriteMutation
+// } from '../../../services/favorite';
 
 interface BreedCardProps {
   id: number | string;
-  isFavorite?: boolean;
+  // isFavorite?: boolean;
   image: string;
   name: string;
   temperament: string;
@@ -21,24 +21,24 @@ const MAX_CHARACTERS = 45;
 
 const BreedCard: React.FC<BreedCardProps> = ({
   id,
-  isFavorite,
+  // isFavorite,
   image,
   name,
   temperament
 }) => {
-  const [addFavorite] = useAddFavoriteMutation();
-  const [deleteFavorite] = useDeleteFavoriteMutation();
-  const [favorite, setFavorite] = useState(isFavorite || false);
+  // const [addFavorite] = useAddFavoriteMutation();
+  // const [deleteFavorite] = useDeleteFavoriteMutation();
+  // const [favorite, setFavorite] = useState(isFavorite || false);
 
-  const addToFavorite = () => {
-    addFavorite({ image_id: id });
-    setFavorite(true);
-  };
+  // const addToFavorite = () => {
+  //   addFavorite({ image_id: id });
+  //   setFavorite(true);
+  // };
 
-  const deleteFromFavorite = () => {
-    deleteFavorite({ favorite_id: id });
-    setFavorite(false);
-  };
+  // const deleteFromFavorite = () => {
+  //   deleteFavorite({ favorite_id: id });
+  //   setFavorite(false);
+  // };
 
   const [isHovered, setIsHovered] = useState(false);
   const trimmedTemperament =
@@ -61,7 +61,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
       }}
       showHovered={isHovered}
     >
-      <IconButton
+      {/* <IconButton
         onClick={favorite ? deleteFromFavorite : addToFavorite}
         aria-label="add to favorites"
         style={{
@@ -72,7 +72,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
         }}
       >
         <AddFavoriteIcon state={favorite ? 'active' : 'default'} />
-      </IconButton>
+      </IconButton> */}
 
       <BreedCardStyled
         onMouseEnter={() => setIsHovered(true)}
@@ -106,7 +106,10 @@ const BreedCard: React.FC<BreedCardProps> = ({
             className="more-info"
             style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
           >
-            <NavLink to={`/breeds/${id}`}>more</NavLink>
+            <NavLink to={`/breeds/${id}`} style={{ zIndex: 5 }}>
+              {' '}
+              more
+            </NavLink>
           </div>
         )}
       </BreedCardStyled>

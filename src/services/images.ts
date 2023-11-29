@@ -13,7 +13,7 @@ export interface Images {
       weight: string;
       height: string;
       life_span: string;
-      breed_group: string;
+      reference_image_id: string;
     }
   ];
   categories: [];
@@ -41,10 +41,24 @@ export type ImagesUploadResponse = {
   approved: number;
 };
 
-type ImagesResponse = Images[];
+// type ImagesResponse = Images[],
+
+export interface BreedImage {
+  id: string;
+  url: string;
+  reference_image_id: string;
+}
+
+type ImagesResponse = {
+  [breedId: string]: BreedImage[];
+};
 
 export const imagesApi = api.injectEndpoints({
   endpoints: build => ({
+    getBreedImages: build.query<ImagesResponse, string>({
+      query: imageId => ({ url: `images/${imageId}` })
+    }),
+
     getImages: build.query<
       ImagesResponse,
       {
@@ -100,6 +114,7 @@ export const imagesApi = api.injectEndpoints({
 });
 
 export const {
+  useGetBreedImagesQuery,
   useGetImagesQuery,
   useUploadImageMutation,
   useUploadImagesListQuery

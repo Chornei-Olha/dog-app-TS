@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
-import { useGetImagesQuery } from '../../../services/images';
 import { useGetBreedsQuery } from '../../../services/breeds';
+import { useGetBreedImagesQuery } from '../../../services/images';
 
 interface Breed {
   key: string;
   id: number;
   name: string;
   temperament: string;
+  reference_image_id: string;
 }
 
 interface BreedListProps {
@@ -30,16 +31,26 @@ const BreedList: React.FC<BreedListProps> = () => {
     overflowX: 'hidden'
   };
 
-  const { data: breeds, isLoading: isLoadingBreeds } = useGetBreedsQuery();
+  const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
 
-  const breedSlice = breeds?.slice((page - 1) * perPage, page * perPage) || [];
+  const breedSlice = useMemo(
+    () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
+    [breeds, page]
+  );
 
-  const imagesQuery = useGetImagesQuery({
-    limit: perPage * page,
-    order: 'random'
-  });
-  const { data: images, isLoading: isLoadingImages } = imagesQuery;
+  const { data: breedImages } = useGetBreedImagesQuery(
+    breedSlice.map(breed => breed.reference_image_id)
+  );
+
+  useEffect(() => {
+    if (breedImages) {
+      const breedImageUrls = breedSlice.map(
+        breed => breedImages[breed.reference_image_id]?.[0]?.url || ''
+      );
+      setImages(breedImageUrls);
+    }
+  }, [breedImages, breedSlice]);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -48,9 +59,7 @@ const BreedList: React.FC<BreedListProps> = () => {
     setPage(value);
   };
 
-  useEffect(() => {
-    imagesQuery.refetch();
-  }, [page, imagesQuery]);
+  const [images, setImages] = useState<string[]>([]);
 
   return (
     <div
@@ -64,13 +73,13 @@ const BreedList: React.FC<BreedListProps> = () => {
             key={breed.id}
             id={breed.id}
             name={breed.name}
-            image={images?.[index]?.url || ''}
+            image={images[index] || ''}
             temperament={breed.temperament}
           />
         ))}
         {breeds && breeds.length && breeds.length > perPage && (
           <Pagination
-            count={Math.ceil(breeds.length / perPage)}
+            count={Math.ceil((breeds.length || 0) / perPage)}
             page={page}
             onChange={handlePageChange}
             sx={{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetBreedByIdQuery } from '../../../services/breeds';
-import { useGetImagesQuery } from '../../../services/images';
+import { useGetBreedImagesQuery } from '../../../services/images'; // Используем новый хук для изображений
 
 interface BreedDetailsProps {
   id: string;
@@ -22,10 +22,15 @@ const BreedDetails = () => {
   const stringBreedId = breedId as string;
   const [isFavorite, setIsFavorite] = useState(false);
 
+  // Используем хук для запроса данных о породе
   const breedQuery = useGetBreedByIdQuery(stringBreedId);
-  const imagesQuery = useGetImagesQuery({ limit: 5 });
 
-  useEffect(() => {}, []);
+  // Используем хук для запроса изображений для конкретной породы
+  const imagesQuery = useGetBreedImagesQuery({ breedId: stringBreedId });
+
+  useEffect(() => {
+    // Ваши дополнительные действия при монтировании компонента
+  }, []);
 
   if (breedQuery.isError) {
     return <div>Error: {breedQuery.error?.message}</div>;
@@ -50,20 +55,30 @@ const BreedDetails = () => {
 
   return (
     <div>
-      {/* <p style={{ padding: '220px' }}>{stringBreedId} </p> */}
+      <p style={{ padding: '220px' }}>{stringBreedId} </p>
       <div>
-        <img src={imagesQuery.data?.[0]?.url || ''} alt={name} />
+        <div>
+          {imagesQuery.data &&
+            imagesQuery.data.map((image, index) => (
+              <img
+                key={index}
+                src={image.url}
+                alt={`Breed ${index + 1} - ${name}`}
+                style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+              />
+            ))}
+        </div>
         <button type="button" onClick={handleFavoriteToggle}>
-          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+          {isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
         </button>
       </div>
       <div>
         <h1>{name}</h1>
-        <p>Weight Range: {weight.metric || 'N/A'}</p>
-        <p>Height: {height.metric || 'N/A'}</p>
-        <p>Life span: {lifeSpan || 'N/A'}</p>
-        <p>Origin: {origin || 'N/A'}</p>
-        <p>Temperament: {temperament || 'N/A'}</p>
+        <p>Диапазон веса: {weight.metric || 'Н/Д'}</p>
+        <p>Высота: {height.metric || 'Н/Д'}</p>
+        <p>Продолжительность жизни: {lifeSpan || 'Н/Д'}</p>
+        <p>Происхождение: {origin || 'Н/Д'}</p>
+        <p>Темперамент: {temperament || 'Н/Д'}</p>
       </div>
     </div>
   );
