@@ -41,8 +41,6 @@ export type ImagesUploadResponse = {
   approved: number;
 };
 
-// type ImagesResponse = Images[],
-
 export interface BreedImage {
   id: string;
   url: string;

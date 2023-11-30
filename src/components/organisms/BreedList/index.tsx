@@ -33,22 +33,10 @@ const BreedList: React.FC<BreedListProps> = () => {
 
   const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
-
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
     [breeds, page]
   );
-
-  const filteredBreedIds = breedSlice
-    .filter(
-      breed =>
-        breed.reference_image_id && typeof breed.reference_image_id === 'string'
-    )
-    .map(breed => breed.reference_image_id);
-
-  const { data: breedImages } = useGetBreedImagesQuery(filteredBreedIds);
-
-  useEffect(() => {}, []);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
