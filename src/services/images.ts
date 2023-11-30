@@ -55,8 +55,15 @@ type ImagesResponse = {
 
 export const imagesApi = api.injectEndpoints({
   endpoints: build => ({
+    // getBreedImages: build.query<ImagesResponse, string>({
+    //   query: imageId => ({ url: `images/${imageId}` })
+    // }),
+
     getBreedImages: build.query<ImagesResponse, string>({
-      query: imageId => ({ url: `images/${imageId}` })
+      query: imageId => ({
+        url: `images/${imageId}`
+      }),
+      providesTags: id => [{ type: 'Images', id }]
     }),
 
     getImages: build.query<
