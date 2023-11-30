@@ -40,6 +40,7 @@ const BreedList: React.FC<BreedListProps> = () => {
     [breeds, page]
   );
   console.log('breedSlice', breedSlice);
+
   const filteredBreedIds = breedSlice
     .filter(
       breed =>
