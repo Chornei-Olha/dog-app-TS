@@ -33,13 +33,11 @@ const BreedList: React.FC<BreedListProps> = () => {
 
   const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
-  // const [images, setImages] = useState<string[]>([]);
 
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
     [breeds, page]
   );
-  console.log('breedSlice', breedSlice);
 
   const filteredBreedIds = breedSlice
     .filter(
@@ -47,29 +45,10 @@ const BreedList: React.FC<BreedListProps> = () => {
         breed.reference_image_id && typeof breed.reference_image_id === 'string'
     )
     .map(breed => breed.reference_image_id);
-  console.log('filteredBreedIds', filteredBreedIds);
 
   const { data: breedImages } = useGetBreedImagesQuery(filteredBreedIds);
 
-  useEffect(() => {
-    if (breedImages) {
-      const breedImageUrls: string[] = [];
-
-      breedSlice.forEach(breed => {
-        const imagesArray = breedImages[breed.reference_image_id];
-
-        if (imagesArray && imagesArray.length > 0) {
-          const imageUrl = imagesArray[0].url;
-          breedImageUrls.push(imageUrl);
-        } else {
-          // Handle the case when no images are available for a breed
-          breedImageUrls.push(''); // or provide a default image URL
-        }
-      });
-
-      setImages(breedImageUrls);
-    }
-  }, [breedImages, breedSlice]);
+  useEffect(() => {}, []);
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
