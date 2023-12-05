@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
 import { useGetBreedsQuery } from '../../../services/breeds';
-import { useGetBreedImagesQuery } from '../../../services/images';
 
 interface Breed {
   key: string;
@@ -11,13 +10,10 @@ interface Breed {
   temperament: string;
   reference_image_id: string;
 }
-
 interface BreedListProps {
   breedsData: Breed[];
 }
-
 const perPage = 6;
-
 const BreedList: React.FC<BreedListProps> = () => {
   const gridStyles = {
     maxWidth: '1200px',
@@ -33,6 +29,7 @@ const BreedList: React.FC<BreedListProps> = () => {
 
   const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
+
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
     [breeds, page]
@@ -44,7 +41,6 @@ const BreedList: React.FC<BreedListProps> = () => {
   ) => {
     setPage(value);
   };
-
   return (
     <div
       style={{
@@ -75,5 +71,4 @@ const BreedList: React.FC<BreedListProps> = () => {
     </div>
   );
 };
-
 export default BreedList;

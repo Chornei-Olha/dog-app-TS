@@ -32,17 +32,14 @@ const BreedCard: React.FC<BreedCardProps> = ({
   // const [addFavorite] = useAddFavoriteMutation();
   // const [deleteFavorite] = useDeleteFavoriteMutation();
   // const [favorite, setFavorite] = useState(isFavorite || false);
-
   // const addToFavorite = () => {
   //   addFavorite({ image_id: id });
   //   setFavorite(true);
   // };
-
   // const deleteFromFavorite = () => {
   //   deleteFavorite({ favorite_id: id });
   //   setFavorite(false);
   // };
-
   const [isHovered, setIsHovered] = useState(false);
   const trimmedTemperament =
     temperament && temperament.length > MAX_CHARACTERS
@@ -78,7 +75,6 @@ const BreedCard: React.FC<BreedCardProps> = ({
       >
         <AddFavoriteIcon state={favorite ? 'active' : 'default'} />
       </IconButton> */}
-
       <BreedCardStyled
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -121,5 +117,4 @@ const BreedCard: React.FC<BreedCardProps> = ({
     </BorderedBox>
   );
 };
-
 export default BreedCard;
