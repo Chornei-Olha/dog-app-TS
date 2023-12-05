@@ -1,69 +1,172 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetBreedByIdQuery } from '../../../services/breeds';
-import { useGetImagesQuery } from '../../../services/images';
+import { useGetBreedImagesQuery } from '../../../services/images';
+import BorderedBox from '../../atoms/BorderedBox';
+import { BreedCardStyled } from '../../molecules/BreedCard/styled';
+import { useGetBreedsQuery } from '../../../services/breeds';
 
 interface BreedDetailsProps {
-  id: string;
+  key: string;
+  id: number;
   name: string;
   temperament: string;
-  weight: {
-    metric: string;
-  };
-  height: {
-    metric: string;
-  };
-  lifeSpan: string;
-  origin: string;
+  reference_image_id: string;
 }
 
-const BreedDetails = () => {
-  const { breed_id: breedId } = useParams();
-  const stringBreedId = breedId as string;
+const BreedDetails: React.FC<BreedDetailsProps> = () => {
+  const gridStyles = {
+    maxWidth: '1200px',
+    width: '100%',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateRows: '1fr',
+    gridGap: '22px',
+    margin: '0 auto',
+    padding: '191px 15px 0 15px',
+    overflowX: 'hidden'
+  };
+  const { breed_id: breedId } = useParams<{ breed_id?: string }>();
+  const { data: breeds } = useGetBreedsQuery();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const breedQuery = useGetBreedByIdQuery(stringBreedId);
-  const imagesQuery = useGetImagesQuery({ limit: 5 });
+  const { data: breedImages } = useGetBreedImagesQuery(breedId);
 
-  useEffect(() => {}, []);
-
-  if (breedQuery.isError) {
-    return <div>Error: {breedQuery.error?.message}</div>;
-  }
-
-  if (breedQuery.isLoading || imagesQuery.isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  const { data, error } = breedQuery;
-
-  if (error || !data || !data.name) {
-    return <div>Error: {error ? error.message : 'No data found'}</div>;
-  }
-
-  const { name, weight, height, lifeSpan, origin, temperament } =
-    data as BreedDetailsProps;
+  useEffect(() => {}, [breedId, breedImages]);
 
   const handleFavoriteToggle = () => {
     setIsFavorite(!isFavorite);
   };
 
   return (
-    <div>
-      {/* <p style={{ padding: '220px' }}>{stringBreedId} </p> */}
-      <div>
-        <img src={imagesQuery.data?.[0]?.url || ''} alt={name} />
+    <div style={gridStyles}>
+      <BorderedBox
+        borderRadius={20}
+        sx={{
+          width: '100%',
+          height: '60vh',
+          margin: '0px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          position: 'relative',
+          overflow: 'hidden'
+        }}
+        showHovered={isHovered}
+      >
+        {breeds && breedImages && breedImages.length > 0 && (
+          <BreedCardStyled
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            key={breeds[0].id}
+            id={breeds[0].id}
+            referenceImageId={breeds[0].reference_image_id}
+          >
+            <img
+              src={breedImages?.url || 'http://via.placeholder.com/640x360'}
+              alt={`Breed ${breedId} - ${name}`}
+              style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+            />
+          </BreedCardStyled>
+        )}
         <button type="button" onClick={handleFavoriteToggle}>
-          {isFavorite ? 'Remove from Favorites' : 'Add to Favorites'}
+          {isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
         </button>
+      </BorderedBox>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(1, 1fr)',
+          gridTemplateRows: '4fr',
+          gridGap: '17px',
+          margin: '0 auto',
+          overflowX: 'hidden'
+        }}
+      >
+        <BorderedBox
+          borderRadius={20}
+          sx={{
+            width: '100%',
+            height: '10vh',
+            margin: '0px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <img
+            src={breedImages?.url || 'http://via.placeholder.com/640x360'}
+            alt={`Breed ${breedId} - ${name}`}
+            style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+          />
+        </BorderedBox>
+        <BorderedBox
+          borderRadius={20}
+          sx={{
+            width: '100%',
+            height: '10vh',
+            margin: '0px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <img
+            src={breedImages?.url || 'http://via.placeholder.com/640x360'}
+            alt={`Breed ${breedId} - ${name}`}
+            style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+          />
+        </BorderedBox>
+        <BorderedBox
+          borderRadius={20}
+          sx={{
+            width: '100%',
+            height: '10vh',
+            margin: '0px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <img
+            src={breedImages?.url || 'http://via.placeholder.com/640x360'}
+            alt={`Breed ${breedId} - ${name}`}
+            style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+          />
+        </BorderedBox>
+        <BorderedBox
+          borderRadius={20}
+          sx={{
+            width: '100%',
+            height: '10vh',
+            margin: '0px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          <img
+            src={breedImages?.url || 'http://via.placeholder.com/640x360'}
+            alt={`Breed ${breedId} - ${name}`}
+            style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+          />
+        </BorderedBox>
       </div>
       <div>
         <h1>{name}</h1>
-        <p>Weight Range: {weight.metric || 'N/A'}</p>
-        <p>Height: {height.metric || 'N/A'}</p>
-        <p>Life span: {lifeSpan || 'N/A'}</p>
-        <p>Origin: {origin || 'N/A'}</p>
-        <p>Temperament: {temperament || 'N/A'}</p>
+        <p>Weight Range: {weight?.metric || 'Н/Д'}</p>
+        <p>Height: {height?.metric || 'Н/Д'}</p>
+        <p>Life span: {life_span || 'Н/Д'}</p>
+        <p>Bred for: {bred_for || 'Н/Д'}</p>
+        <p>Temperament: {temperament || 'Н/Д'}</p>
       </div>
     </div>
   );

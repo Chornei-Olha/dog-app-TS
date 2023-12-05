@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
-import { useGetImagesQuery } from '../../../services/images';
 import { useGetBreedsQuery } from '../../../services/breeds';
 
 interface Breed {
@@ -9,14 +8,12 @@ interface Breed {
   id: number;
   name: string;
   temperament: string;
+  reference_image_id: string;
 }
-
 interface BreedListProps {
   breedsData: Breed[];
 }
-
 const perPage = 6;
-
 const BreedList: React.FC<BreedListProps> = () => {
   const gridStyles = {
     maxWidth: '1200px',
@@ -30,16 +27,13 @@ const BreedList: React.FC<BreedListProps> = () => {
     overflowX: 'hidden'
   };
 
-  const { data: breeds, isLoading: isLoadingBreeds } = useGetBreedsQuery();
+  const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
 
-  const breedSlice = breeds?.slice((page - 1) * perPage, page * perPage) || [];
-
-  const imagesQuery = useGetImagesQuery({
-    limit: perPage * page,
-    order: 'random'
-  });
-  const { data: images, isLoading: isLoadingImages } = imagesQuery;
+  const breedSlice = useMemo(
+    () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
+    [breeds, page]
+  );
 
   const handlePageChange = (
     event: React.ChangeEvent<unknown>,
@@ -47,11 +41,6 @@ const BreedList: React.FC<BreedListProps> = () => {
   ) => {
     setPage(value);
   };
-
-  useEffect(() => {
-    imagesQuery.refetch();
-  }, [page, imagesQuery]);
-
   return (
     <div
       style={{
@@ -59,18 +48,18 @@ const BreedList: React.FC<BreedListProps> = () => {
       }}
     >
       <div className="breed-list" style={gridStyles}>
-        {breedSlice.map((breed, index) => (
+        {breedSlice.map(breed => (
           <BreedCard
             key={breed.id}
             id={breed.id}
             name={breed.name}
-            image={images?.[index]?.url || ''}
             temperament={breed.temperament}
+            referenceImageId={breed.reference_image_id}
           />
         ))}
         {breeds && breeds.length && breeds.length > perPage && (
           <Pagination
-            count={Math.ceil(breeds.length / perPage)}
+            count={Math.ceil((breeds.length || 0) / perPage)}
             page={page}
             onChange={handlePageChange}
             sx={{
@@ -82,5 +71,4 @@ const BreedList: React.FC<BreedListProps> = () => {
     </div>
   );
 };
-
 export default BreedList;
