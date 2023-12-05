@@ -25,14 +25,13 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
     padding: '191px 15px 0 15px',
     overflowX: 'hidden'
   };
-  const { breed_id: breedId } = useParams<{ breed_id?: string }>();
   const { data: breeds } = useGetBreedsQuery();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const { data: breedImages } = useGetBreedImagesQuery(breedId);
+  const { data: breedImages } = useGetBreedImagesQuery(reference_image_id);
 
-  useEffect(() => {}, [breedId, breedImages]);
+  // useEffect(() => {}, [breedId, breedImages]);
 
   const handleFavoriteToggle = () => {
     setIsFavorite(!isFavorite);
@@ -54,13 +53,13 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         }}
         showHovered={isHovered}
       >
-        {breeds && breedImages && breedImages.length > 0 && (
+        {breedImages.map(breed => (
           <BreedCardStyled
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            key={breeds[0].id}
-            id={breeds[0].id}
-            referenceImageId={breeds[0].reference_image_id}
+            key={breed[0].id}
+            id={breed[0].id}
+            referenceImageId={breed[0].reference_image_id}
           >
             <img
               src={breedImages?.url || 'http://via.placeholder.com/640x360'}
@@ -68,7 +67,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
               style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
             />
           </BreedCardStyled>
-        )}
+        ))}
         <button type="button" onClick={handleFavoriteToggle}>
           {isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
         </button>

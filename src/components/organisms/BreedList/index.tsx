@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
 import { useGetBreedsQuery } from '../../../services/breeds';
-
 interface Breed {
   key: string;
   id: number;
