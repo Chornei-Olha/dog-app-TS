@@ -67,15 +67,17 @@ export const imagesApi = api.injectEndpoints({
         page?: number;
         mime_type?: string;
         order?: string;
+        breed_id?: number;
       }
     >({
       query: ({
         limit = 10,
         page = 0,
         mime_type = 'all',
+        breed_id,
         order = 'RANDOM'
       }) => ({
-        url: `images/search?limit=${limit}&page=${page}&mime_types=${mime_type}&order=${order}`
+        url: `images/search?limit=${limit}&page=${page}&mime_types=${mime_type}&order=${order}&breed_id=${breed_id}`
       }),
       providesTags: (result = []) => [
         ...result.map(({ id }) => ({ type: 'Images', id }) as const),

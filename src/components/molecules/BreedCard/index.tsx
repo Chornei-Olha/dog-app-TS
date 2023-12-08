@@ -47,7 +47,6 @@ const BreedCard: React.FC<BreedCardProps> = ({
       : temperament;
 
   const { data: breedImages } = useGetBreedImagesQuery(referenceImageId);
-
   return (
     <BorderedBox
       borderRadius={20}
@@ -108,7 +107,6 @@ const BreedCard: React.FC<BreedCardProps> = ({
             style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
           >
             <NavLink to={`/breeds/${id}`} style={{ zIndex: 5 }}>
-              {' '}
               more
             </NavLink>
           </div>
