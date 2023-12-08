@@ -1,19 +1,22 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useGetBreedImagesQuery } from '../../../services/images';
+import { useGetImagesQuery } from '../../../services/images';
 import BorderedBox from '../../atoms/BorderedBox';
 import { BreedCardStyled } from '../../molecules/BreedCard/styled';
-import { useGetBreedsQuery } from '../../../services/breeds';
+import {
+  useGetBreedByIdQuery,
+  useGetBreedsQuery
+} from '../../../services/breeds';
 
-interface BreedDetailsProps {
-  key: string;
-  id: number;
-  name: string;
-  temperament: string;
-  reference_image_id: string;
-}
+// interface BreedDetailsProps {
+//   key: string;
+//   id: number;
+//   name: string;
+//   temperament: string;
+//   reference_image_id: string;
+// }
 
-const BreedDetails: React.FC<BreedDetailsProps> = () => {
+const BreedDetails = () => {
   const gridStyles = {
     maxWidth: '1200px',
     width: '100%',
@@ -25,13 +28,21 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
     padding: '191px 15px 0 15px',
     overflowX: 'hidden'
   };
+
+  const { breed_id: breedId } = useParams();
   const { data: breeds } = useGetBreedsQuery();
   const [isFavorite, setIsFavorite] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const { data: breedImages } = useGetBreedImagesQuery(reference_image_id);
+  const { data: breedImages } = useGetBreedByIdQuery(String(breedId));
+  const { data: test2 } = useGetImagesQuery({
+    breed_id: Number(breedId)
+  });
 
-  // useEffect(() => {}, [breedId, breedImages]);
+  // eslint-disable-next-line no-console
+  console.log('breedImages', breedImages);
+  // eslint-disable-next-line no-console
+  console.log('test2', test2);
 
   const handleFavoriteToggle = () => {
     setIsFavorite(!isFavorite);
@@ -53,21 +64,32 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         }}
         showHovered={isHovered}
       >
-        {breedImages.map(breed => (
+        <img
+          src={
+            `https://cdn2.thedogapi.com/images/BJa4kxc4X_1280.jpg` ||
+            'http://via.placeholder.com/640x360'
+          }
+          alt=""
+          style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
+        />
+        {breeds && breedImages && breedImages.length > 0 && (
           <BreedCardStyled
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            key={breed[0].id}
-            id={breed[0].id}
-            referenceImageId={breed[0].reference_image_id}
+            key={breeds[0].id}
+            id={breeds[0].id}
+            referenceImageId={breeds[0].reference_image_id}
           >
             <img
-              src={breedImages?.url || 'http://via.placeholder.com/640x360'}
-              alt={`Breed ${breedId} - ${name}`}
+              src={
+                `https://cdn2.thedogapi.com/images/BJa4kxc4X_1280.jpg` ||
+                'http://via.placeholder.com/640x360'
+              }
+              alt={`Breed ${breedId} - ${breedImages?.name}`}
               style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
             />
           </BreedCardStyled>
-        ))}
+        )}
         <button type="button" onClick={handleFavoriteToggle}>
           {isFavorite ? 'Убрать из избранного' : 'Добавить в избранное'}
         </button>
@@ -76,10 +98,8 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(1, 1fr)',
-          gridTemplateRows: '4fr',
           gridGap: '17px',
-          margin: '0 auto',
-          overflowX: 'hidden'
+          margin: '0 auto'
         }}
       >
         <BorderedBox
@@ -97,7 +117,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         >
           <img
             src={breedImages?.url || 'http://via.placeholder.com/640x360'}
-            alt={`Breed ${breedId} - ${name}`}
+            alt={`Breed ${breedId} - ${breedImages?.name}`}
             style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
           />
         </BorderedBox>
@@ -116,7 +136,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         >
           <img
             src={breedImages?.url || 'http://via.placeholder.com/640x360'}
-            alt={`Breed ${breedId} - ${name}`}
+            alt={`Breed ${breedId} - ${breedImages?.name}`}
             style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
           />
         </BorderedBox>
@@ -135,7 +155,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         >
           <img
             src={breedImages?.url || 'http://via.placeholder.com/640x360'}
-            alt={`Breed ${breedId} - ${name}`}
+            alt={`Breed ${breedId} - ${breedImages?.name}`}
             style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
           />
         </BorderedBox>
@@ -154,21 +174,20 @@ const BreedDetails: React.FC<BreedDetailsProps> = () => {
         >
           <img
             src={breedImages?.url || 'http://via.placeholder.com/640x360'}
-            alt={`Breed ${breedId} - ${name}`}
+            alt={`Breed ${breedId} - ${breedImages?.name}`}
             style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
           />
         </BorderedBox>
       </div>
       <div>
-        <h1>{name}</h1>
-        <p>Weight Range: {weight?.metric || 'Н/Д'}</p>
-        <p>Height: {height?.metric || 'Н/Д'}</p>
-        <p>Life span: {life_span || 'Н/Д'}</p>
-        <p>Bred for: {bred_for || 'Н/Д'}</p>
-        <p>Temperament: {temperament || 'Н/Д'}</p>
+        <h1>{breedImages?.name}</h1>
+        <p>Weight Range: {breedImages?.weight?.metric || 'Н/Д'}</p>
+        <p>Height: {breedImages?.height?.metric || 'Н/Д'}</p>
+        <p>Life span: {breedImages?.life_span || 'Н/Д'}</p>
+        <p>Bred for: {breedImages?.bred_for || 'Н/Д'}</p>
+        <p>Temperament: {breedImages?.temperament || 'Н/Д'}</p>
       </div>
     </div>
   );
 };
-
 export default BreedDetails;

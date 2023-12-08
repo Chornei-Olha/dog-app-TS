@@ -1,19 +1,21 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
 import { useGetBreedsQuery } from '../../../services/breeds';
-interface Breed {
-  key: string;
-  id: number;
-  name: string;
-  temperament: string;
-  reference_image_id: string;
-}
-interface BreedListProps {
-  breedsData: Breed[];
-}
+
+// interface Breed {
+//   key: string;
+//   id: number;
+//   name: string;
+//   temperament: string;
+//   reference_image_id: string;
+// }
+// interface BreedListProps {
+//   breedsData: Breed[];
+// }
 const perPage = 6;
-const BreedList: React.FC<BreedListProps> = () => {
+
+const BreedList = () => {
   const gridStyles = {
     maxWidth: '1200px',
     width: '100%',
@@ -28,6 +30,7 @@ const BreedList: React.FC<BreedListProps> = () => {
 
   const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
+  console.log('breeds', breeds);
 
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
@@ -35,7 +38,7 @@ const BreedList: React.FC<BreedListProps> = () => {
   );
 
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.ChangeEvent<unknown>,
     value: number
   ) => {
     setPage(value);
