@@ -11,6 +11,12 @@ export const BreedCardStyled = styled(Box)({
   overflow: 'hidden'
 });
 
+// export const BreedCardImage = styled('img')({
+//   width: '100%',
+//   height: 'auto',
+//   display: 'block'
+// });
+
 export const BreedCardText = styled(Box)({
   padding: '14px 28px 28px 29px',
   height: '32%',

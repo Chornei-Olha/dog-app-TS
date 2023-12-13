@@ -73,7 +73,10 @@ const BreedCard: React.FC<BreedCardProps> = ({
             className="more-info"
             style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
           >
-            <NavLink to={`/breeds/${id}`} style={{ zIndex: 5 }}>
+            <NavLink
+              to={`/breeds/${id}`}
+              style={{ zIndex: 5, color: 'orange', textDecoration: 'none' }}
+            >
               more
             </NavLink>
           </div>
