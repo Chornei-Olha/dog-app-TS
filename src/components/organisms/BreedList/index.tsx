@@ -1,10 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { Pagination } from '@mui/material';
+import { useNavigate, useLocation } from 'react-router-dom';
+
 import BreedCard from '../../molecules/BreedCard';
+
 import { useGetBreedsQuery } from '../../../services/breeds';
 import { shadowTopWrap, shadowBottomWrap } from './styled';
 import shadowBottom from '../../../assets/img/mainPage/shadow/shadow-1.svg';
 import shadowTop from '../../../assets/img/mainPage/shadow/shadow-2.svg';
+import { Loader } from '../../atoms/Loader';
 
 const perPage = 6;
 
@@ -20,9 +24,15 @@ const BreedList = () => {
     padding: '191px 15px 0 15px',
     overflowX: 'hidden'
   };
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  // const currentPage = parseInt(searchParams.get('currentPage')) || 1;
+  const navigate = useNavigate();
 
-  const { data: breeds } = useGetBreedsQuery();
-  const [page, setPage] = useState(1);
+  const { data: breeds, isLoading } = useGetBreedsQuery();
+  const [page, setPage] = useState(
+    parseInt(searchParams.get('currentPage')) || 1
+  );
 
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
@@ -34,6 +44,8 @@ const BreedList = () => {
     value: number
   ) => {
     setPage(value);
+    searchParams.set('currentPage', String(value));
+    navigate(`?${searchParams.toString()}`);
   };
   return (
     <div
@@ -65,6 +77,7 @@ const BreedList = () => {
         )}
       </div>
       <img src={shadowBottom} alt="" style={shadowBottomWrap} />
+      {isLoading && <Loader />}
     </div>
   );
 };
