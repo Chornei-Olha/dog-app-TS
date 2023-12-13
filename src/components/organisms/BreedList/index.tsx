@@ -2,17 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import BreedCard from '../../molecules/BreedCard';
 import { useGetBreedsQuery } from '../../../services/breeds';
+import { shadowTopWrap, shadowBottomWrap } from './styled';
+import shadowBottom from '../../../assets/img/mainPage/shadow/shadow-1.svg';
+import shadowTop from '../../../assets/img/mainPage/shadow/shadow-2.svg';
 
-// interface Breed {
-//   key: string;
-//   id: number;
-//   name: string;
-//   temperament: string;
-//   reference_image_id: string;
-// }
-// interface BreedListProps {
-//   breedsData: Breed[];
-// }
 const perPage = 6;
 
 const BreedList = () => {
@@ -30,7 +23,6 @@ const BreedList = () => {
 
   const { data: breeds } = useGetBreedsQuery();
   const [page, setPage] = useState(1);
-  console.log('breeds', breeds);
 
   const breedSlice = useMemo(
     () => breeds?.slice((page - 1) * perPage, page * perPage) || [],
@@ -49,6 +41,8 @@ const BreedList = () => {
         textAlign: 'center'
       }}
     >
+      <img src={shadowTop} alt="" style={shadowTopWrap} />
+
       <div className="breed-list" style={gridStyles}>
         {breedSlice.map(breed => (
           <BreedCard
@@ -70,6 +64,7 @@ const BreedList = () => {
           />
         )}
       </div>
+      <img src={shadowBottom} alt="" style={shadowBottomWrap} />
     </div>
   );
 };
