@@ -71,7 +71,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
   };
 
   return (
-    <div style={gridStyles}>
+    <div style={{ ...gridStyles, paddingBottom: '10px' }}>
       <img src={shadowTop} alt="" style={shadowTopWrap} />
 
       <div
@@ -173,11 +173,36 @@ const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
       <div>
         <h1>{breedById?.name}</h1>
         <SvgIcon component={LogoIcon} inheritViewBox />
-        <p>Weight Range: {breedById?.weight?.metric || 'Н/Д'}</p>
-        <p>Height: {breedById?.height?.metric || 'Н/Д'}</p>
-        <p>Life span: {breedById?.life_span || 'Н/Д'}</p>
-        <p>Bred for: {breedById?.bred_for || 'Н/Д'}</p>
-        <p>Temperament: {breedById?.temperament || 'Н/Д'}</p>
+        <p>
+          Weight Range:{' '}
+          <span style={{ color: '#ADA7B8' }}>
+            {breedById?.weight?.metric || 'Н/Д'} kg
+          </span>
+        </p>
+        <p>
+          Height:{' '}
+          <span style={{ color: '#ADA7B8' }}>
+            {breedById?.height?.metric || 'Н/Д'} sm{' '}
+          </span>
+        </p>
+        <p>
+          Life span:{' '}
+          <span style={{ color: '#ADA7B8' }}>
+            {breedById?.life_span || 'Н/Д'}{' '}
+          </span>
+        </p>
+        <p>
+          Bred for:{' '}
+          <span style={{ color: '#ADA7B8' }}>
+            {breedById?.bred_for || 'Н/Д'}
+          </span>
+        </p>
+        <p>
+          Temperament:{' '}
+          <span style={{ color: '#ADA7B8' }}>
+            {breedById?.temperament || 'Н/Д'}
+          </span>
+        </p>
       </div>
       <img src={shadowBottom} alt="" style={shadowBottomWrap} />
     </div>
