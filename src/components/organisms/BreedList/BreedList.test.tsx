@@ -19,7 +19,10 @@ const mockBreedsData = [
 ];
 
 jest.mock('../../../services/images', () => ({
-  useGetImagesQuery: jest.fn(() => ({ data: mockBreedsData, isLoading: false }))
+  useGetImagesIdQuery: jest.fn(() => ({
+    data: mockBreedsData,
+    isLoading: false
+  }))
 }));
 
 jest.mock('../../../services/breeds', () => ({
