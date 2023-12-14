@@ -11,7 +11,7 @@ interface BreedCardProps {
   referenceImageId: string;
 }
 
-const MAX_CHARACTERS = 45;
+const MAX_CHARACTERS = 80;
 
 const BreedCard: React.FC<BreedCardProps> = ({
   id,
@@ -55,6 +55,7 @@ const BreedCard: React.FC<BreedCardProps> = ({
             borderRadius: '20px'
           }}
         />
+
         <BreedCardText>
           <h2
             style={{
@@ -64,23 +65,27 @@ const BreedCard: React.FC<BreedCardProps> = ({
           >
             {name}
           </h2>
+          {isHovered && (
+            <div
+              className="more-info"
+              style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
+            >
+              <NavLink
+                to={`/breeds/${id}`}
+                style={{
+                  zIndex: 5,
+                  color: 'orange',
+                  textDecoration: 'none'
+                }}
+              >
+                more
+              </NavLink>
+            </div>
+          )}
           <p style={{ marginBottom: '5px', fontSize: '20px' }}>
-            Temperamente: {trimmedTemperament}
+            {trimmedTemperament}
           </p>
         </BreedCardText>
-        {isHovered && (
-          <div
-            className="more-info"
-            style={{ marginLeft: '80%', marginBottom: '5%', zIndex: '5' }}
-          >
-            <NavLink
-              to={`/breeds/${id}`}
-              style={{ zIndex: 5, color: 'orange', textDecoration: 'none' }}
-            >
-              more
-            </NavLink>
-          </div>
-        )}
       </BreedCardStyled>
     </BorderedBox>
   );
