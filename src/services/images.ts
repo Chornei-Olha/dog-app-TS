@@ -60,7 +60,7 @@ export const imagesApi = api.injectEndpoints({
       providesTags: id => [{ type: 'Images', id }]
     }),
 
-    getImages: build.query<
+    getImagesId: build.query<
       ImagesResponse,
       {
         limit?: number;
@@ -84,6 +84,32 @@ export const imagesApi = api.injectEndpoints({
         { type: 'Images' as const, id: 'LIST' }
       ]
     }),
+
+    getImages: build.query<
+      ImagesResponse,
+      {
+        limit?: number;
+        page?: number;
+        mime_type?: string;
+        order?: string;
+        breed_id?: number;
+      }
+    >({
+      query: ({
+        limit = 10,
+        page = 0,
+        mime_type = 'all',
+        breed_id,
+        order = 'RANDOM'
+      }) => ({
+        url: `images/search?limit=${limit}&page=${page}&mime_types=${mime_type}&order=${order}`
+      }),
+      providesTags: (result = []) => [
+        ...result.map(({ id }) => ({ type: 'Images', id }) as const),
+        { type: 'Images' as const, id: 'LIST' }
+      ]
+    }),
+
     uploadImage: build.mutation<Images, FormData>({
       query(formData) {
         return {
@@ -114,6 +140,7 @@ export const imagesApi = api.injectEndpoints({
 
 export const {
   useGetBreedImagesQuery,
+  useGetImagesIdQuery,
   useGetImagesQuery,
   useUploadImageMutation,
   useUploadImagesListQuery

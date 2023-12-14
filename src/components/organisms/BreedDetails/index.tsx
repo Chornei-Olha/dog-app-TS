@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { SvgIcon, IconButton } from '@mui/material';
 import LogoIcon from '../../../assets/icons/Cat Footprint.svg?react';
-import { useGetImagesQuery } from '../../../services/images';
+import { useGetImagesIdQuery } from '../../../services/images';
 import BorderedBox from '../../atoms/BorderedBox';
 import { BreedCardStyled } from '../../molecules/BreedCard/styled';
 import {
@@ -47,7 +47,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
   const [imageHeight, setImageHeight] = useState(0);
 
   const { data: breedById } = useGetBreedByIdQuery(String(breedId));
-  const { data: imageById } = useGetImagesQuery({
+  const { data: imageById } = useGetImagesIdQuery({
     breed_id: Number(breedId)
   });
 

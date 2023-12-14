@@ -1,9 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Pagination } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
-
 import BreedCard from '../../molecules/BreedCard';
-
 import { useGetBreedsQuery } from '../../../services/breeds';
 import { shadowTopWrap, shadowBottomWrap } from './styled';
 import shadowBottom from '../../../assets/img/mainPage/shadow/shadow-1.svg';
@@ -26,7 +24,6 @@ const BreedList = () => {
   };
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  // const currentPage = parseInt(searchParams.get('currentPage')) || 1;
   const navigate = useNavigate();
 
   const { data: breeds, isLoading } = useGetBreedsQuery();
@@ -47,6 +44,7 @@ const BreedList = () => {
     searchParams.set('currentPage', String(value));
     navigate(`?${searchParams.toString()}`);
   };
+
   return (
     <div
       style={{
