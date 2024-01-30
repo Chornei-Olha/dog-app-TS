@@ -1,34 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { SvgIcon, IconButton } from '@mui/material';
+import { SvgIcon } from '@mui/material';
 import LogoIcon from '../../../assets/icons/Cat Footprint.svg?react';
 import { useGetImagesIdQuery } from '../../../services/images';
 import BorderedBox from '../../atoms/BorderedBox';
-import { BreedCardStyled } from '../../molecules/BreedCard/styled';
+import { GridCardActions } from '../../molecules/GridCardActions';
+
 import {
   useGetBreedByIdQuery,
   useGetBreedsQuery
 } from '../../../services/breeds';
-import {
-  borderedGeneralBox,
-  borderedBox,
-  breedCard,
-  shadowTopWrap,
-  shadowBottomWrap
-} from './styled';
-import { AddFavoriteIcon } from '../../atoms/AddFavoriteIcon';
-import {
-  useAddFavoriteMutation,
-  useDeleteFavoriteMutation
-} from '../../../services/favorite';
-import shadowBottom from '../../../assets/img/mainPage/shadow/shadow-1.svg';
+import { borderedGeneralBox, borderedBox, cardActionsTop } from './styled';
 import shadowTop from '../../../assets/img/mainPage/shadow/shadow-2.svg';
+import shadowBottom from '../../../assets/img/mainPage/shadow/shadow-1.svg';
+import quotes from '../../../assets/icons/Quotes.svg';
+import { shadowTopWrap, shadowBottomWrap, quotesStyle } from './styled';
 
 interface BreedDetailsProps {
+  id: string | number;
   isFavorite?: boolean;
-  image: string;
 }
-const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
+export const BreedDetails = ({ id, isFavorite = false }: BreedDetailsProps) => {
   const gridStyles = {
     maxWidth: '1200px',
     width: '100%',
@@ -40,40 +32,19 @@ const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
     padding: '191px 15px 0 15px',
     overflowX: 'hidden'
   };
-  const { breed_id: breedId } = useParams();
-  const { data: breeds } = useGetBreedsQuery();
-  const [localIsFavorite, setlocalIsFavorite] = useState(isFavorite || false);
-  const [isHovered, setIsHovered] = useState(false);
-  const [imageHeight, setImageHeight] = useState(0);
 
+  const { breed_id: breedId } = useParams();
+  const [isHovered, setIsHovered] = useState(false);
   const { data: breedById } = useGetBreedByIdQuery(String(breedId));
   const { data: imageById } = useGetImagesIdQuery({
     breed_id: Number(breedId)
   });
 
-  const [addFavorite] = useAddFavoriteMutation();
-  const [deleteFavorite] = useDeleteFavoriteMutation();
-  const addToFavorite = () => {
-    addFavorite({ image_id: id });
-    setlocalIsFavorite(true);
-  };
-  const deleteFromFavorite = () => {
-    deleteFavorite({ localIsFavorite_id: id });
-    setlocalIsFavorite(false);
-  };
-
-  const handleImageLoad = event => {
-    const { height } = event.target;
-    setImageHeight(height);
-  };
-  const handleFavoriteToggle = () => {
-    setlocalIsFavorite(prevIsFavorite => !prevIsFavorite);
-  };
+  // eslint-disable-next-line no-nested-ternary
+  const iconState = isFavorite ? 'active' : isHovered ? 'hover' : 'default';
 
   return (
     <div style={{ ...gridStyles, paddingBottom: '10px' }}>
-      <img src={shadowTop} alt="" style={shadowTopWrap} />
-
       <div
         style={{
           width: '100%',
@@ -83,38 +54,23 @@ const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
           alignItems: 'center'
         }}
       >
+        <img src={shadowTop} alt="" style={shadowTopWrap} />
+
         <BorderedBox
           borderRadius={0}
-          sx={{ ...borderedGeneralBox, height: imageHeight }}
+          sx={{ ...borderedGeneralBox }}
           showHovered={isHovered}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
-          <IconButton
-            onClick={handleFavoriteToggle}
-            aria-label="add to localIsFavorites"
+          <img
+            src={imageById?.[0]?.url || 'http://via.placeholder.com/640x360'}
+            alt={`${breedById?.name}`}
             style={{
-              position: 'absolute',
-              top: '24px',
-              right: '24px',
-              zIndex: '10'
+              width: '100%',
+              height: 'auto'
             }}
-          >
-            <AddFavoriteIcon state={localIsFavorite ? 'active' : 'default'} />
-          </IconButton>
-          <BreedCardStyled
-            sx={breedCard}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <img
-              src={imageById?.[0]?.url || 'http://via.placeholder.com/640x360'}
-              alt={`${breedById?.name}`}
-              onLoad={handleImageLoad}
-              style={{
-                width: '100%',
-                height: 'auto'
-              }}
-            />
-          </BreedCardStyled>
+          />
         </BorderedBox>
       </div>
       <div
@@ -204,6 +160,7 @@ const BreedDetails: React.FC<BreedDetailsProps> = ({ isFavorite, image }) => {
           </span>
         </p>
       </div>
+      <img src={quotes} alt="" style={quotesStyle} />
       <img src={shadowBottom} alt="" style={shadowBottomWrap} />
     </div>
   );
